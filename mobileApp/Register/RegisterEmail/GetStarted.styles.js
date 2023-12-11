@@ -12,6 +12,7 @@ export default StyleSheet.create({
         height: '60%',
     },
     projectNameNavContainer: {
+        marginTop: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',

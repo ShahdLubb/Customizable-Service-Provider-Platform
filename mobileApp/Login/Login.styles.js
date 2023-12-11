@@ -9,17 +9,19 @@ const styles = StyleSheet.create({
 
     },
     projectNameNavContainer: {
+        marginTop: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         justifyContent: 'center',
     },
     projectNameNav: {
-        fontSize: 30,
+        fontSize: globalVars.fontSizeTopic,
         fontFamily: 'Cinzel-ExtraBold',
         color: globalVars.lightColor,
     },
     spanText: {
+        fontSize: globalVars.fontSizeTopic,
         fontFamily: 'Cinzel-ExtraBold',
         color: globalVars.lessShadowColor,
     },

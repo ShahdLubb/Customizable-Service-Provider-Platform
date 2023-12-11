@@ -7,7 +7,7 @@ const globalVars = {
     lightColor: 'rgb(189, 0, 82)',
     shadowColor: '#a50047e1',
     lessShadowColor: '#a5004781',
-    decorColor: 'rgb(29, 181, 192)',
+    decorColor: '#64b1b6',
     decorColorShadow: 'rgba(35, 179, 189, 0.09)',
     boldGray: 'rgb(78, 78, 78)',
     lightGray: 'rgba(95, 95, 95, 0.966)',

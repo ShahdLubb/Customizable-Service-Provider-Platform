@@ -6,7 +6,7 @@ export default function GetStarted() {
 	const navigation = useNavigation();
 
 	const handleGetStarted = () => {
-		navigation.navigate("Log in");
+		navigation.navigate("RegisterPagesNavigator");
 	};
 	const handleLogIn = () => {
 		navigation.navigate("Log in");

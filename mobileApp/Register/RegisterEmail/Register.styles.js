@@ -2,199 +2,117 @@ import { StyleSheet } from 'react-native';
 import { globalVars } from '../../App.styles';
 
 export default StyleSheet.create({
-  registerEmail: {
+  page: {
+    backgroundColor: 'white',
     height: '100%',
-    overflow: 'hidden',
   },
-  registerEmailImg: {
-    backgroundColor: '#64b1b6',
-    position: 'relative',
-    zIndex: 1,
-    overflow: 'hidden',
-  },
-  registerDetailsTitle: {
-    padding: 4,
-    height: '10vh',
+  projectNameNavContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   projectNameNav: {
-    fontFamily: 'Cinzel',
-    fontWeight: '700',
-    fontSize: 18,
-    letterSpacing: 0.1,
-    color: 'white',
-  },
-  projectNameNavSpan: {
-    color: globalVars.boldColor,
-  },
-  registerDetailsTitleText: {
-    color: 'white',
-    fontSize: globalVars.fontSizeSmall,
-    fontWeight: '400',
-  },
-  getStarted: {
-    height: '85%',
-    lineHeight: '85%',
-    padding: 4,
-    fontSize: globalVars.fontSizeNormal,
-    color: 'white',
-    backgroundColor: 'transparent',
-    borderColor: 'white',
-    borderRadius: 30,
-    transition: 'background-color 0.5s',
-  },
-  registerEmailImgbottom: {
-    height: '90vh',
-  },
-  registerEmailImgDesc: {
-    color: 'white',
-    margin: 4,
-    height: '62vh',
-  },
-  registerEmailImgDescH2: {
-    fontSize: globalVars.fontSizeSemitopic,
-  },
-  registerEmailImgDescP: {
-    fontSize: globalVars.fontSizeP,
-  },
-  registerStep: {
-    height: '10%',
-    position: 'relative',
-  },
-  welcom: {
-    fontFamily: 'Cinzel',
-    fontWeight: '700',
-    fontSize: 20,
-    color: globalVars.boldColor,
-  },
-  registerEmailHelp: {
-    padding: '.5rem 5.5rem',
-    color: 'white',
-  },
-  registerEmailHelpH3: {
-    fontSize: globalVars.fontSizeP,
-  },
-  registerEmailHelpH4: {
-    fontSize: globalVars.fontSizeP,
-    fontWeight: '400',
-  },
-  registerEmailSupport: {
-    textDecoration: 'none',
-    color: 'white',
-    fontSize: globalVars.fontSizeP,
-    fontWeight: '400',
-  },
-  registerEmailSupportHover: {
-    textDecoration: 'underline',
+    fontSize: globalVars.fontSizeTopic,
+    fontFamily: 'Cinzel-ExtraBold',
     color: globalVars.lightColor,
   },
-  registerEmailImgImg: {
-    width: '100%',
-    position: 'absolute',
-    zIndex: 0,
-    right: -148,
-    bottom: 0,
+  spanText: {
+    fontSize: globalVars.fontSizeTopic,
+    fontFamily: 'Cinzel-ExtraBold',
+    color: globalVars.lessShadowColor,
   },
-  registerFormTitle: {
-    padding: 4,
-    height: '10vh',
+  RegisterView: {
+    backgroundColor: 'white',
+    flex: 1,
+    height: "100%"
   },
-  registerFormTitleH2: {
-    fontSize: globalVars.fontSizeSemitopic,
-    color: globalVars.boldGray,
+  registerFormTitleContainer: {
+    marginTop: '8%',
+    textAlign: 'center',
+    alignItems: 'center',
   },
-  registerDetailsForm: {
-    margin: '2%',
-    height: '61vh',
+  registerFormTitleText: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: 'black',
+    fontFamily: globalVars.fontFamily,
+
+  },
+  regform: {
+    backgroundColor: 'white',
+    flex: 1,
+    height: "100%",
+    marginTop: '4%',
+  },
+  regformFields: {
+    padding: '4%',
   },
   formField: {
-    height: '10%',
+    padding: '2%',
   },
-  registerDetailsFormLabel: {
-    fontSize: globalVars.fontSizeP,
+  label: {
+    fontSize: 16,
     fontWeight: '500',
-    color: globalVars.lightGray,
+    color: globalVars.boldGray,
     paddingBottom: 4,
+    fontFamily: globalVars.fontFamily,
   },
-  registerDetailsFormInput: {
-    padding: 4,
-    borderRadius: 30,
+  input: {
+    padding: 8,
+    borderRadius: 6,
+    borderColor: '#a5004725',
     borderWidth: 1,
-    borderColor: '#a5004725'
+    fontFamily: globalVars.fontFamily,
   },
-  registerDetailsFormInputFocus: {
-    outline: 'none',
-    boxShadow: globalVars.lessShadowColor,
-    borderColor: globalVars.shadowColor,
+  buttonContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: 'auto',
+
   },
-  registerDetailsFormInputPlaceholder: {
-    color: 'rgba(0, 0, 0, 0.46)',
-    fontSize: globalVars.fontSizeSmall,
+  slider: {
+    flexDirection: 'row',
+    width: '100%'
   },
-  registerDetailsFormSelect: {
-    padding: 4,
-    borderRadius: 30,
+  buttonContainerSlider1: {
+    width: '50%',
+    borderBlockColor: globalVars.decorColor,
     borderWidth: 1,
-    borderColor: '#a5004725'
   },
-  registerDetailsFormSelectFocus: {
-    outline: 'none',
-  },
-  registerDetailsFormOption: {
-    padding: 4,
-    color: globalVars.lightGray,
-  },
-  registerNext: {
-    paddingTop: 8,
-  },
-  registerNextBefore: {
-    content: '',
-    position: 'absolute',
-    backgroundColor: '#a500471a',
-    height: 4,
-    width: '100%',
-    left: 0,
-    top: 0,
-  },
-  registerNextAfter: {
-    content: '',
-    position: 'absolute',
-    backgroundColor: globalVars.shadowColor,
-    height: 4,
-    width: '20%',
-    top: 0,
-  },
-  registerNextP: {
-    fontSize: globalVars.fontSizeP,
-    color: globalVars.shadowColor,
-  },
-  registerTermsLink: {
-    textDecoration: 'none',
-    color: globalVars.shadowColor,
-    fontWeight: '500',
-    fontSize: globalVars.fontSizeP,
-  },
-  registerTermsLinkHover: {
-    color: '#64b1b6',
-  },
-  registerNextLink: {
-    padding: 4,
-    fontSize: globalVars.fontSizeNormal,
-    color: globalVars.lightColor,
-    backgroundColor: 'transparent',
+  buttonContainerSlider2: {
+    width: '50%',
+    borderBlockColor: globalVars.boldGray,
     borderWidth: 1,
-    borderColor: globalVars.lightColor,
-    borderRadius: 30,
-    textAlign: 'center',
   },
-  registerNextLinkHover: {
-    backgroundColor: globalVars.shadowColor,
+  submitButton: {
+    backgroundColor: globalVars.decorColor,
+    borderColor: 'transparent',
+    borderWidth: 1,
+    borderRadius: 30,
+    marginTop: '8%',
+    marginBottom: '8%',
+    justifyContent: 'space-between',
+    width: '85%',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+
+  },
+  submitButtonText: {
+    fontSize: 20,
+    fontWeight: '600',
     color: 'white',
-    borderWidth: 1,
-    borderColor: globalVars.shadowColor,
+    textAlign: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontFamily: globalVars.fontFamily,
   },
+
   errors: {
     color: globalVars.shadowColor,
-    fontSize: 12,
+    fontSize: 14,
     paddingTop: 4,
+    fontFamily: globalVars.fontFamily,
   },
+
 });

@@ -6,9 +6,9 @@ import { jwtDecode } from 'jwt-decode';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import GetStarted from './Register/RegisterEmail/GetStarted';
+import RegisterPagesNavigator from './Register/RegisterEmail/RegisterPagesNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
 
 const loadFonts = async () => {
   await Font.loadAsync({
@@ -50,9 +50,11 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Log in" component={Login} initialParams={{ decodeUserData: decodeUserData }} />
-        <Stack.Screen name="Get started" component={GetStarted} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Log in" component={Login} initialParams={{ decodeUserData: decodeUserData }} options={{ headerShown: false }} />
+        <Stack.Screen name="Get started" component={GetStarted} options={{ headerShown: false }} />
+        <Stack.Screen name="RegisterPagesNavigator" component={RegisterPagesNavigator} options={{ headerShown: false }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
