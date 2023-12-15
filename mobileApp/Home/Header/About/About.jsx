@@ -13,8 +13,8 @@ export default function About() {
 
 	return (
 		<View style={[styles.about, styles.textStart]}>
-			<Text style={styles.heading}>Powering your journey, on your terms.</Text>
-			<Text style={styles.subheading}>On-Demand cleaning service.</Text>
+			<Text style={styles.heading}>Get your needs, on your terms.</Text>
+			<Text style={styles.subheading}>Diverse On-Demand services.</Text>
 
 			<View style={styles.aboutButton}>
 				<TouchableOpacity
@@ -25,7 +25,7 @@ export default function About() {
 				</TouchableOpacity>
 			</View>
 			<Text style={styles.aboutButtonText}>
-				Start now and get 3% OFF for each delivery until September 30th.
+				Start now and get 30% OFF for new services on the first month.
 			</Text>
 		</View>
 	);

@@ -50,13 +50,11 @@ export default function RegisterType() {
 							<View>
 								<TouchableOpacity
 									style={styles.registerTypeNextContainer}
-									onPress={() => navigation.navigate("/register/employee")}
+									onPress={() => navigation.navigate("Worker Registration")}
 									activeOpacity={0.8}
 								>
 									<View style={styles.IconTypeContainer}>
-										<Text style={styles.registerTypeText}>
-											Join as Employee{" "}
-										</Text>
+										<Text style={styles.registerTypeText}>Join as Worker </Text>
 										<FontAwesomeIcon
 											icon={faChevronRight}
 											size={20}
@@ -75,7 +73,7 @@ export default function RegisterType() {
 							<View>
 								<TouchableOpacity
 									style={styles.registerTypeNextContainer}
-									onPress={() => navigation.navigate("/register/company")}
+									onPress={() => navigation.navigate("Company Registration")}
 									activeOpacity={0.8}
 								>
 									<View style={styles.IconTypeContainer}>

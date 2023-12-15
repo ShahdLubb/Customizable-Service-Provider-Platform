@@ -125,7 +125,7 @@ export default function Login({ route }) {
 				<Text style={styles.newCustomerText}>Are you a new customer?</Text>
 				<TouchableOpacity
 					style={styles.getStarted}
-					onPress={() => navigation.navigate("RegisterEmail")}
+					onPress={() => navigation.navigate("RegisterPagesNavigator")}
 				>
 					<Text style={styles.getStartedText}>Register Now</Text>
 				</TouchableOpacity>

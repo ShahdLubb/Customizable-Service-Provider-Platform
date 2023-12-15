@@ -4,6 +4,7 @@ import { globalVars } from '../../App.styles';
 export default StyleSheet.create({
     page: {
         backgroundColor: 'white',
+        height: '100%'
     },
 
     RegisterView: {

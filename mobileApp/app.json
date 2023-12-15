@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.shahdlubada.mobileApp"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "295898f8-5674-499c-878a-4eac759e00dd"
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ export default function Home() {
 		<View style={HomeStyles.home}>
 			<View style={HomeStyles.home}>
 				<ImageBackground
-					source={require("../../public/images/home.png")} // Adjust the image path as needed
+					source={require("../../public/images/home.jpg")} // Adjust the image path as needed
 					style={HomeStyles.homeImg}
 				></ImageBackground>
 				<View style={HomeStyles.home}>

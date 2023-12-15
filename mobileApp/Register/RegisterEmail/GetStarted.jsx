@@ -25,7 +25,7 @@ export default function GetStarted() {
 				<View style={styles.newCustomerContainer}>
 					<Text style={styles.newCustomerText}>Register as New Customer</Text>
 					<Text style={styles.newCustomerOfferText}>
-						Start now and get 3% OFF for each delivery until September 30th.
+						Start now and get 30% OFF for new services on the first month.
 					</Text>
 					<View style={styles.getStartedButton}>
 						<TouchableOpacity

@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons/faCalendarDays";
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone";
 
-export default function RegisterCustomerPersonalInfo({ route }) {
+export default function RegisterCompanyPersonalInfo({ route }) {
 	const { email, password, confirmPassword } = route.params;
 	const navigation = useNavigation();
 	const [errors, setError] = useState();
@@ -80,7 +80,7 @@ export default function RegisterCustomerPersonalInfo({ route }) {
 	async function checkRegData(values) {
 		try {
 			const { data } = await axios.post(
-				"http://192.168.1.17:8085/register/customer",
+				"http://192.168.1.17:8085/register/company",
 				values
 			);
 			setTimeout(() => {
@@ -103,7 +103,7 @@ export default function RegisterCustomerPersonalInfo({ route }) {
 
 				<View style={styles.RegisterView}>
 					<View style={styles.registerFormTitleContainer}>
-						<Text style={styles.registerFormTitleText}>Personal Info</Text>
+						<Text style={styles.registerFormTitleText}>Company Info</Text>
 						{errors ? <Text style={styles.errors}>{errors}</Text> : null}
 					</View>
 

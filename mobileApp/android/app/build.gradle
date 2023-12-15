@@ -81,7 +81,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.mobileapp"
+    namespace 'com.shahdlubada.mobileApp'
     defaultConfig {
         applicationId 'com.shahdlubada.mobileApp'
         minSdkVersion rootProject.ext.minSdkVersion

@@ -13,7 +13,7 @@ import * as Yup from "yup";
 
 import styles from "./Register.styles";
 
-export default function RegisterCustomerAccountInfo() {
+export default function RegisterWorkerAccountInfo() {
 	const navigation = useNavigation();
 	const [errors, setError] = useState();
 
@@ -40,7 +40,7 @@ export default function RegisterCustomerAccountInfo() {
 	});
 
 	async function checkRegData(values) {
-		navigation.navigate("Customer Info", values);
+		navigation.navigate("Worker Info", values);
 	}
 
 	return (
