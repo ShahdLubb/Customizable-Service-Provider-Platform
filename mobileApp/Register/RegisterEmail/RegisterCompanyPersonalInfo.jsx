@@ -22,31 +22,20 @@ export default function RegisterCompanyPersonalInfo({ route }) {
 	const { email, password, confirmPassword } = route.params;
 	const navigation = useNavigation();
 	const [errors, setError] = useState();
-	const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-	const [selectedDate, setSelectedDate] = useState(null);
-
-	const showDatePicker = () => {
-		setDatePickerVisibility(true);
-	};
-
-	const hideDatePicker = () => {
-		setDatePickerVisibility(false);
-	};
-
-	const handleConfirm = (date) => {
-		console.warn("A date has been picked: ", date);
-		setSelectedDate(date);
-		formik.setFieldValue("birthday", date.toLocaleDateString());
-		formik.handleChange("birthday");
-		hideDatePicker();
-	};
 
 	const schema = Yup.object({
-		fullName: Yup.string()
-			.required("Please enter your full name")
+		companyName: Yup.string()
+			.required("Please enter your company name")
 			.min(3, "At least 3 letters")
 			.max(30, "At most 30 letters"),
-		birthday: Yup.string().required("Please enter your Birthday"),
+		field: Yup.string()
+			.required("Please enter your company working field")
+			.min(3, "At least 3 letters")
+			.max(30, "At most 30 letters"),
+		description: Yup.string()
+			.required("Please enter your company description")
+			.optional()
+			.max(3000, "At most 30 letters"),
 		address1: Yup.string().required("Please enter your address"),
 		address2: Yup.string().optional(),
 		city: Yup.string().required("Please enter your city"),
@@ -61,8 +50,8 @@ export default function RegisterCompanyPersonalInfo({ route }) {
 
 	const formik = useFormik({
 		initialValues: {
-			fullName: "",
-			birthday: selectedDate ? selectedDate.toLocaleDateString() : "",
+			companyName: "",
+			field: "",
 			email: email,
 			password: password,
 			confirmPassword: confirmPassword,
@@ -111,56 +100,61 @@ export default function RegisterCompanyPersonalInfo({ route }) {
 						<ScrollView>
 							<View style={styles.regformFields}>
 								<View style={styles.formField}>
-									<Text style={styles.label}>Full Name</Text>
+									<Text style={styles.label}>Company Name</Text>
 									<TextInput
 										style={styles.input}
-										placeholder="Enter your full name"
-										name="fullName"
-										value={formik.values.fullName}
-										onChangeText={formik.handleChange("fullName")}
+										placeholder="Enter your company name"
+										name="companyName"
+										value={formik.values.companyName}
+										onChangeText={formik.handleChange("companyName")}
 										autoCapitalize="none"
-										autoCompleteType="fullName"
+										autoCompleteType="companyName"
 									/>
-									{formik.errors.fullName && formik.touched.fullName ? (
-										<Text style={styles.errors}>{formik.errors.fullName}</Text>
+									{formik.errors.companyName && formik.touched.companyName ? (
+										<Text style={styles.errors}>
+											{formik.errors.companyName}
+										</Text>
 									) : null}
 								</View>
 								<View style={styles.formField}>
-									<Text style={styles.label}>Birthday</Text>
-									<View style={styles.TextandIcon}>
-										<TouchableOpacity
-											style={styles.IconContainer}
-											onPress={showDatePicker}
-										>
-											<FontAwesomeIcon
-												style={styles.Icon}
-												size={20}
-												icon={faCalendarDays}
-											/>
-										</TouchableOpacity>
-										<TextInput
-											style={
-												selectedDate
-													? styles.dateInputSelected
-													: styles.dateInputNotSelected
-											}
-											placeholder="Enter your birthday"
-											name="bithday"
-											value={formik.values.birthday}
-											editable={false}
-										/>
-									</View>
-
-									<DateTimePickerModal
-										isVisible={isDatePickerVisible}
-										mode="date"
-										onConfirm={handleConfirm}
-										onCancel={hideDatePicker}
-										textColor="black
-										"
+									<Text style={styles.label}>Field</Text>
+									<TextInput
+										style={styles.input}
+										placeholder="Enter your company working field"
+										name="field"
+										value={formik.values.field}
+										onChangeText={formik.handleChange("field")}
+										autoCapitalize="none"
+										autoCompleteType="field"
 									/>
-									{formik.errors.birthday && formik.touched.birthday ? (
-										<Text style={styles.errors}>{formik.errors.birthday}</Text>
+									{formik.errors.field && formik.touched.field ? (
+										<Text style={styles.errors}>{formik.errors.field}</Text>
+									) : null}
+								</View>
+								<View style={styles.formField}>
+									<View style={styles.optionalInputContainer}>
+										<Text style={styles.labelForOptionalField}>
+											Description
+										</Text>
+										<Text style={styles.optionalText}>optional</Text>
+									</View>
+									<ScrollView>
+										<TextInput
+											style={styles.ScrollableInput}
+											placeholder="Enter description about your company"
+											name="description"
+											multiline
+											numberOfLines={3}
+											value={formik.values.description}
+											onChangeText={formik.handleChange("description")}
+											autoCapitalize="none"
+											autoCompleteType="description"
+										/>
+									</ScrollView>
+									{formik.errors.description && formik.touched.description ? (
+										<Text style={styles.errors}>
+											{formik.errors.description}
+										</Text>
 									) : null}
 								</View>
 								<View style={styles.formField}>

@@ -73,6 +73,14 @@ export default StyleSheet.create({
     fontFamily: globalVars.fontFamily,
     fontSize: 16,
   },
+  ScrollableInput: {
+    padding: '4%',
+    borderRadius: 6,
+    borderColor: '#a5004725',
+    borderWidth: 1,
+    fontFamily: globalVars.fontFamily,
+    fontSize: 16,
+  },
   dateInputSelected: {
     padding: '4%',
     borderRadius: 6,

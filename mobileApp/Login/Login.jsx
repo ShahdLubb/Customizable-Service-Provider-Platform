@@ -4,15 +4,13 @@ import { useNavigation } from "@react-navigation/native";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import * as SecureStore from "expo-secure-store";
 import styles from "./Login.styles"; // React Native styles for your component
-
-export default function Login({ route }) {
-	const { decodeUserData } = route.params;
+import AuthContext from "../AuthContext";
+export default function Login() {
 	const navigation = useNavigation();
 	const [errors, setErrors] = useState("");
-
+	const { signIn } = React.useContext(AuthContext);
 	const schema = Yup.object({
 		email: Yup.string()
 			.required("Enter your email")
@@ -31,24 +29,31 @@ export default function Login({ route }) {
 		validationSchema: schema,
 		onSubmit: checkDataAuth,
 	});
-	const saveTokenToStorage = async (token) => {
+	const saveUserToStorage = async (userData) => {
 		try {
-			await AsyncStorage.setItem("userToken", token);
-			console.log("Token saved successfully");
+			await SecureStore.setItemAsync("user", userData);
+			console.log("user saved successfully");
 		} catch (error) {
-			console.error("Error saving token:", error);
+			console.error("Error saving user:", error);
 		}
 	};
 	async function checkDataAuth(values) {
 		try {
 			const { data } = await axios.post(
-				"http://192.168.1.27:8085/login",
+				"http://192.168.1.17:8085/login",
 				values
 			);
-			await saveTokenToStorage(data.access_token);
-			decodeUserData();
+			console.log(data);
+			saveUserToStorage(JSON.stringify(data));
+			signIn(data);
 			setErrors("");
-			navigation.navigate("Home");
+			if (data.role === "ROLE_CUSTOMER") {
+				navigation.navigate("Customer Screens");
+			} else if (data.role === "ROLE_EMPLOYEE") {
+				navigation.navigate("Worker Screens");
+			} else {
+				navigation.navigate("Home");
+			}
 		} catch (error) {
 			const errorMessage = error.message;
 			setErrors(errorMessage);
