@@ -3,6 +3,8 @@ package com.graduationproject.serviceproviderplatform.controller;
 import com.graduationproject.serviceproviderplatform.model.*;
 import com.graduationproject.serviceproviderplatform.repository.*;
 import com.graduationproject.serviceproviderplatform.service.CategoryService;
+import com.graduationproject.serviceproviderplatform.service.InputService;
+import com.graduationproject.serviceproviderplatform.service.OptionService;
 import com.graduationproject.serviceproviderplatform.service.ServiceService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -28,18 +30,20 @@ public class CategoryController {
     private ServiceRepository serviceRepository;
     private ServiceService serviceService;
     private ServiceOptionRepository serviceOptionRepository;
-    private RequestRepository requestRepository;
-    private AppointmentRepository appointmentRepository;
+    private OptionService optionService;
+    private ServiceInputRepository serviceInputRepository;
+    private InputService inputService;
 
-    public CategoryController(CategoryRepository categoryRepository, CategoryService categoryService, ServiceRepository serviceRepository, CompanyRepository companyRepository, ServiceService serviceService, ServiceOptionRepository serviceOptionRepository, RequestRepository requestRepository, AppointmentRepository appointmentRepository) {
+    public CategoryController(CategoryRepository categoryRepository, CategoryService categoryService, ServiceRepository serviceRepository, CompanyRepository companyRepository, ServiceService serviceService, ServiceOptionRepository serviceOptionRepository, OptionService optionService, ServiceInputRepository serviceInputRepository, InputService inputService) {
         this.categoryRepository = categoryRepository;
         this.categoryService = categoryService;
         this.companyRepository = companyRepository;
         this.serviceRepository = serviceRepository;
         this.serviceService = serviceService;
         this.serviceOptionRepository = serviceOptionRepository;
-        this.requestRepository = requestRepository;
-        this.appointmentRepository = appointmentRepository;
+        this.optionService = optionService;
+        this.serviceInputRepository = serviceInputRepository;
+        this.inputService = inputService;
     }
 
     @GetMapping
@@ -60,7 +64,6 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).body(new CategoryDTO(category.get()));
     }
 
-    //@Secured({"ROLE_ADMIN"})
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCategory(@PathVariable Long id, @Valid @RequestBody CategoryDTO category, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
@@ -85,7 +88,6 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).body("Category updated successfully");
     }
 
-    //@Secured({"ROLE_ADMIN"})
     @PostMapping
     public ResponseEntity<String> createCategory(@Valid @RequestBody CategoryDTO categoryDTO, BindingResult bindingResult) {
         System.out.println(categoryDTO);
@@ -115,7 +117,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).body("Category deleted successfully");
     }
 
-    // ###################################### Services endpoints ###################################### //
+    // ###################################### Service endpoints ###################################### //
 
     @GetMapping("/{id}/services") // Get all services belong to this category
     public ResponseEntity<List<Service>> getAllServices(@PathVariable Long id) {
@@ -135,6 +137,7 @@ public class CategoryController {
         if (service.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+        System.out.println(service);
         return ResponseEntity.status(HttpStatus.OK).body(service.get());
     }
 
@@ -143,8 +146,7 @@ public class CategoryController {
         if(bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
         }
-        Optional<Category> category = categoryRepository.findById(categoryId);
-        if(category.isEmpty()) {
+        if(!categoryRepository.existsById(categoryId)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with categoryId = " + categoryId);
         }
         List<Service> services = serviceRepository.findAllByName(service.getName());
@@ -152,12 +154,18 @@ public class CategoryController {
             if(s.getCategory().getId() == categoryId)
                 return ResponseEntity.status(HttpStatus.CONFLICT).body("Service already exists in this category");
         }
-        Category updatedCategory = category.get();
-        Service newService = serviceRepository.save(service);
-        service.setCategory(updatedCategory);
-        updatedCategory.addService(newService);
-        categoryRepository.save(updatedCategory);
-        return ResponseEntity.status(HttpStatus.OK).body("Service added successfully");
+        Category category = categoryRepository.findById(categoryId).get();
+        service.setCategory(category);
+        service = serviceRepository.save(service);
+        for (ServiceOption option: service.getServiceOptions()) {
+            option.setService(service);
+            serviceOptionRepository.save(option);
+        }
+        for (ServiceInput input: service.getServiceInputs()) {
+            input.setService(service);
+            serviceInputRepository.save(input);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("Service added successfully with id = " + service.getId());
     }
 
     @PutMapping("/{categoryId}/services/{serviceId}")
@@ -204,8 +212,137 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).body("Service deleted successfully");
     }
 
-    @GetMapping("/{categoryId}/services/{serviceId}/available-days")
-    public ResponseEntity<List<LocalDate>> getAvailableDates(@PathVariable Long categoryId, @PathVariable Long serviceId) {
+    // ###################################### ServiceOption endpoints ###################################### //
+
+    @PostMapping("/{categoryId}/services/{serviceId}/options")
+    public ResponseEntity<String> addNewServiceOption(@PathVariable Long categoryId, @PathVariable Long serviceId, @Valid @RequestBody ServiceOption option, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
+        }
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with categoryId = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+
+        Service service = serviceRepository.findById(serviceId).get();
+        option.setService(service);
+        option = serviceOptionRepository.save(option);
+
+        return ResponseEntity.status(HttpStatus.OK).body("Option added successfully with id = " + option.getId());
+    }
+
+    @PutMapping("/{categoryId}/services/{serviceId}/options/{optionId}")
+    public ResponseEntity<String> updateServiceOption(@PathVariable Long categoryId, @PathVariable Long serviceId, @PathVariable Long optionId, @Valid @RequestBody ServiceOption option, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
+        }
+        if(optionId != option.getId()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The id in the Url is different from the one in the body");
+        }
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with categoryId = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+        if(!serviceOptionRepository.existsById(optionId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no option with id = " + optionId);
+        }
+
+        ServiceOption updatedOption = serviceOptionRepository.findById(optionId).get();
+        updatedOption.setName(option.getName());
+        updatedOption.setDescription(option.getDescription());
+
+        serviceOptionRepository.save(updatedOption);
+        return ResponseEntity.status(HttpStatus.OK).body("Option updated successfully");
+    }
+
+    @DeleteMapping("/{categoryId}/services/{serviceId}/options/{optionId}")
+    public ResponseEntity<String> deleteServiceOption(@PathVariable Long categoryId, @PathVariable Long serviceId, @PathVariable Long optionId) {
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with id = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+        if(!serviceOptionRepository.existsById(optionId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no option with id = " + optionId);
+        }
+        ServiceOption option = serviceOptionRepository.findById(optionId).get();
+        optionService.delete(option);
+        return ResponseEntity.status(HttpStatus.OK).body("Option deleted successfully");
+    }
+
+    // ###################################### ServicesInput endpoints ###################################### //
+
+    @PostMapping("/{categoryId}/services/{serviceId}/inputs")
+    public ResponseEntity<String> addNewServiceInput(@PathVariable Long categoryId, @PathVariable Long serviceId, @Valid @RequestBody ServiceInput input, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
+        }
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with categoryId = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+
+        Service service = serviceRepository.findById(serviceId).get();
+        input.setService(service);
+        input = serviceInputRepository.save(input);
+
+        return ResponseEntity.status(HttpStatus.OK).body("Input added successfully with id = " + input.getId());
+    }
+
+    @PutMapping("/{categoryId}/services/{serviceId}/inputs/{inputId}")
+    public ResponseEntity<String> updateServiceInput(@PathVariable Long categoryId, @PathVariable Long serviceId, @PathVariable Long inputId, @Valid @RequestBody ServiceInput input, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
+        }
+        if(inputId != input.getId()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The id in the Url is different from the one in the body");
+        }
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with categoryId = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+        if(!serviceInputRepository.existsById(inputId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no input with id = " + inputId);
+        }
+
+        ServiceInput updatedInput = serviceInputRepository.findById(inputId).get();
+        updatedInput.setName(input.getName());
+        updatedInput.setDescription(input.getDescription());
+        updatedInput.setRequired(input.isRequired());
+
+        serviceInputRepository.save(updatedInput);
+        return ResponseEntity.status(HttpStatus.OK).body("Input updated successfully");
+    }
+
+    @DeleteMapping("/{categoryId}/services/{serviceId}/inputs/{inputId}")
+    public ResponseEntity<String> deleteServiceInput(@PathVariable Long categoryId, @PathVariable Long serviceId, @PathVariable Long inputId) {
+        if(!categoryRepository.existsById(categoryId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no category with id = " + categoryId);
+        }
+        if(!serviceRepository.existsById(serviceId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no service with id = " + serviceId);
+        }
+        if(!serviceInputRepository.existsById(inputId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There is no input with id = " + inputId);
+        }
+        ServiceInput input = serviceInputRepository.findById(inputId).get();
+        inputService.delete(input);
+        return ResponseEntity.status(HttpStatus.OK).body("Service input deleted successfully");
+    }
+
+    // ###################################### Service availability endpoints ###################################### //
+
+    @GetMapping("/{categoryId}/services/{serviceId}/unavailable-dates")
+    public ResponseEntity<List<LocalDate>> getUnavailableDates(@PathVariable Long categoryId, @PathVariable Long serviceId) {
         if(!categoryRepository.existsById(categoryId)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
@@ -218,16 +355,16 @@ public class CategoryController {
         Map<LocalDate, Long> appointmentsByDate = appointments.stream()
                 .collect(Collectors.groupingBy(Appointment::getStartDate, Collectors.counting()));
 
-        // Filter dates where all slots are reserved (assuming 5 slots per day)
+        // Filter dates where all slots are reserved (assuming 10 slots per day)
         List<LocalDate> unavailableDays = appointmentsByDate.entrySet().stream()
-                .filter(entry -> entry.getValue() >= 5)
+                .filter(entry -> getAvailableTimes(serviceId, entry.getKey()).size() == 0  )
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
         return ResponseEntity.status(HttpStatus.OK).body(unavailableDays);
     }
 
-    @GetMapping("/{categoryId}/services/{serviceId}/available-days/{date}")
+    @GetMapping("/{categoryId}/services/{serviceId}/available-times/{date}")
     public ResponseEntity<List<LocalTime>> getAvailableTimes(@PathVariable Long categoryId, @PathVariable Long serviceId, @PathVariable LocalDate date) {
         if(!categoryRepository.existsById(categoryId)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -236,17 +373,22 @@ public class CategoryController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
-        // Fetch all appointments for the given service and date
-//        List<Appointment> appointments = appointmentRepository.findByServiceIdAndStartDate(serviceId, date);
+        List<LocalTime> availableTimes = getAvailableTimes(serviceId, date);
+
+        return ResponseEntity.status(HttpStatus.OK).body(availableTimes);
+    }
+
+    private List<LocalTime> getAvailableTimes(Long serviceId, LocalDate date) {
+        // I think this will be called in the previous two APIs ...
         List<Appointment> appointments = serviceRepository.findById(serviceId).get().getAppointments()
                 .stream().filter(a -> a.getStartDate().equals(date)).toList();
 
-        // Create a set of all possible time slots for the day (assuming 2-hour slots from 8am to 6pm)
+        // Create a set of all possible time slots for the day (assuming 1-hour slots from 8am to 6pm)
         Set<LocalTime> allTimeSlots = new HashSet<>();
         LocalTime currentTime = LocalTime.of(8, 0);
         while (currentTime.isBefore(LocalTime.of(18, 0))) {
             allTimeSlots.add(currentTime);
-            currentTime = currentTime.plusHours(2);
+            currentTime = currentTime.plusHours(1);
         }
 
         // Remove reserved time slots
@@ -255,16 +397,15 @@ public class CategoryController {
             LocalTime endTime = appointment.getEndTime();
 
             // Remove all time slots between start and end time
-            while (!startTime.isAfter(endTime)) {
+            while (startTime.isBefore(endTime)) {
                 allTimeSlots.remove(startTime);
-                startTime = startTime.plusHours(2);
+                startTime = startTime.plusHours(1);
             }
         });
 
         // Convert the set of available time slots to a sorted list
         List<LocalTime> availableTimes = new ArrayList<>(allTimeSlots);
         Collections.sort(availableTimes);
-
-        return ResponseEntity.status(HttpStatus.OK).body(availableTimes);
+        return availableTimes;
     }
 }

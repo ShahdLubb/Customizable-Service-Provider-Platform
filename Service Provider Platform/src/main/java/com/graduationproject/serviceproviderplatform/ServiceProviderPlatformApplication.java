@@ -55,7 +55,6 @@ public class ServiceProviderPlatformApplication {
             admin.setConfirmPassword(secret);
             admin.setCompany(newCompany);
             Admin newAdmin = adminRepository.save(admin);
-//            newCompany.setAdmin(newAdmin);
             companyRepository.save(newCompany);
             System.out.println(newCompany);
 

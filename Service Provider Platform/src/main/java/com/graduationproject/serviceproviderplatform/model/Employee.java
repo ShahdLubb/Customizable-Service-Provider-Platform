@@ -55,13 +55,6 @@ public class Employee extends User {
 //        this.rating = employeeDTO.getRating();
 //    }
 
-//    public String getCompanyName() {
-//        if (company != null) {
-//            return company.getName();
-//        }
-//        return null;
-//    }
-
     public void addService(Service service) {
         services.add(service);
     }
@@ -69,13 +62,5 @@ public class Employee extends User {
     public void removeService(Service service) {
         services.remove(service);
     }
-
-//    public void addRequest(Request request) {
-//        requests.add(request);
-//    }
-
-//    public void addFeedback(ServiceFeedback feedback) {
-//        feedbacks.add(feedback);
-//    }
 
 }

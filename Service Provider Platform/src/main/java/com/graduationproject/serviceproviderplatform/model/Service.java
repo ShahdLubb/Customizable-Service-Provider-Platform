@@ -34,9 +34,6 @@ public class Service {
     @JoinColumn(name = "category_id")
     private Category category;
 
-//    @ManyToOne
-//    private Company company; // If this is null, that means it belong to a freelancer not to a company
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JsonIgnore
     @ToString.Exclude
@@ -52,26 +49,18 @@ public class Service {
     @NonNull
     private Long avgPrice;
 
-    @OneToMany(mappedBy = "service")
-    @JsonIgnore
-    @ToString.Exclude
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private List<ServiceOption> serviceOptions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "service")
-    @JsonIgnore
-    @ToString.Exclude
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private List<ServiceInput> serviceInputs = new ArrayList<>();
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
     private List<Request> requests = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "service")
-//    @JsonIgnore
-//    @ToString.Exclude
-//    private List<Appointment> appointments = new ArrayList<>();
-
+    @JsonIgnore
     public List<Appointment> getAppointments() {
         return requests.stream()
                 .map(Request::getAppointment)

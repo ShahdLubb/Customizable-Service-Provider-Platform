@@ -17,10 +17,6 @@ public class Appointment {
     private Long id;
 
     @NonNull
-    @ManyToOne
-    private Service service;
-
-    @NonNull
     private LocalDate startDate;
 
     @NonNull
@@ -32,6 +28,6 @@ public class Appointment {
     private LocalTime endTime;
 
     @NonNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 }
