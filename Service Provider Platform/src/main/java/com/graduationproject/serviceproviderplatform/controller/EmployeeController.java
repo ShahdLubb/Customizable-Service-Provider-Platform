@@ -13,9 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.DayOfWeek;
+import java.util.*;
 
 @RestController
 @RequestMapping("/employees")
@@ -81,6 +80,9 @@ public class EmployeeController {
         updatedEmployee.setRating(employeeDTO.getRating()); //I think there is no need for this line because the rating will change with every feedback, and it has its own API
         updatedEmployee.setEnabled(employeeDTO.isEnabled());
         updatedEmployee.setYearsOfExperience(employeeDTO.getYearsOfExperience());
+        updatedEmployee.setWorkDays(employeeDTO.getWorkDays());
+        updatedEmployee.setWorkStartTime(employeeDTO.getWorkStartTime());
+        updatedEmployee.setWorkEndTime(employeeDTO.getWorkEndTime());
 
         employeeRepository.save(updatedEmployee);
         return ResponseEntity.status(HttpStatus.OK).body("Employee updated successfully");
@@ -130,7 +132,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}/requests/{status}")
-    public ResponseEntity<List<Request>> getEmployeeIncompleteRequests(@PathVariable Long id, @PathVariable String status) {
+    public ResponseEntity<List<Request>> getEmployeeSpecificRequests(@PathVariable Long id, @PathVariable String status) {
         if(!employeeRepository.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
@@ -153,4 +155,18 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(id).get();
         return ResponseEntity.status(HttpStatus.OK).body(employee.getFeedbacks());
     }
+
+    @GetMapping("/{id}/holidays")
+    public ResponseEntity<Set<DayOfWeek>> getEmployeeHolidays(@PathVariable Long id) {
+        if(!employeeRepository.existsById(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        Employee employee = employeeRepository.findById(id).get();
+        Set<DayOfWeek> workDays = employee.getWorkDays();
+        Set<DayOfWeek> holidayDays = EnumSet.allOf(DayOfWeek.class);
+        holidayDays.removeAll(workDays);
+        return ResponseEntity.ok(holidayDays);
+    }
+
+
 }

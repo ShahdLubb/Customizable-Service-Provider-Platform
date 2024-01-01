@@ -1,32 +1,33 @@
 package com.graduationproject.serviceproviderplatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Entity
-@AllArgsConstructor
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Address {
+@NoArgsConstructor
+public class InputChoice {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @NonNull
-    private String city;
+    @ManyToOne
+    private ServiceInput input;
 
     @NonNull
-    private String line1;
+    private String choice;
 
     @NonNull
-    private String line2;
-
-    @NonNull
-    private String postalCode;
+    @ManyToOne
+    @ToString.Exclude
+    @JsonIgnore
+    private Request request;
 }

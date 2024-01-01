@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
+import java.util.*;
 
 @Entity
 @RequiredArgsConstructor
@@ -24,8 +25,10 @@ public class Company {
     @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Image image;
 
+    @NonNull
     private String field;
 
+    @NonNull
     private String description;
 
     private String phone;
@@ -33,6 +36,14 @@ public class Company {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+
+    private Set<DayOfWeek> workDays;
+
+    @NonNull
+    private LocalTime workStartTime;
+
+    @NonNull
+    private LocalTime workEndTime;
 
     @OneToMany(mappedBy = "company")
     @JsonIgnore
@@ -53,7 +64,10 @@ public class Company {
         this.address = companyDTO.getAddress();
     }
 
-//    public Company(String name) {
-//        this.name = name;
-//    }
+    public Set<DayOfWeek> getWorkDays() {
+        Set<DayOfWeek> defaultWorkDays = EnumSet.allOf(DayOfWeek.class);
+        defaultWorkDays.remove(DayOfWeek.FRIDAY);
+        return Optional.ofNullable(workDays)
+                .orElse(defaultWorkDays);
+    }
 }

@@ -97,7 +97,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}/requests/{status}")
-    public ResponseEntity<List<Request>> getUserIncompleteRequests(@PathVariable Long id, @PathVariable String status) {
+    public ResponseEntity<List<Request>> getCustomerSpecificRequests(@PathVariable Long id, @PathVariable String status) {
         if(!customerRepository.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
