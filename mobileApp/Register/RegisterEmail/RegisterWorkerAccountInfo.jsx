@@ -6,6 +6,9 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView,
 	Platform,
+	Keyboard,
+	TouchableWithoutFeedback,
+	ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFormik } from "formik";
@@ -59,57 +62,63 @@ export default function RegisterWorkerAccountInfo() {
 					</View>
 
 					<View style={styles.regform}>
-						<View style={styles.regformFields}>
-							<View style={styles.formField}>
-								<Text style={styles.label}>Email Address</Text>
-								<TextInput
-									style={styles.input}
-									placeholder="Enter your email address"
-									name="email"
-									value={formik.values.email}
-									onChangeText={formik.handleChange("email")}
-									autoCapitalize="none"
-									autoCompleteType="email"
-								/>
-								{formik.errors.email && formik.touched.email ? (
-									<Text style={styles.errors}>{formik.errors.email}</Text>
-								) : null}
-							</View>
+						<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+							<ScrollView onScroll={Keyboard.dismiss}>
+								<View style={styles.regformFields}>
+									<View style={styles.formField}>
+										<Text style={styles.label}>Email Address</Text>
+										<TextInput
+											style={styles.input}
+											placeholder="Enter your email address"
+											name="email"
+											value={formik.values.email}
+											onChangeText={formik.handleChange("email")}
+											autoCapitalize="none"
+											autoCompleteType="email"
+										/>
+										{formik.errors.email && formik.touched.email ? (
+											<Text style={styles.errors}>{formik.errors.email}</Text>
+										) : null}
+									</View>
 
-							<View style={styles.formField}>
-								<Text style={styles.label}>Password</Text>
-								<TextInput
-									style={styles.input}
-									placeholder="Enter your password"
-									name="password"
-									value={formik.values.password}
-									onChangeText={formik.handleChange("password")}
-									secureTextEntry
-									autoCompleteType="password"
-								/>
-								{formik.errors.password && formik.touched.password ? (
-									<Text style={styles.errors}>{formik.errors.password}</Text>
-								) : null}
-							</View>
-							<View style={styles.formField}>
-								<Text style={styles.label}>Confirm Password</Text>
-								<TextInput
-									style={styles.input}
-									placeholder="Confirm your password"
-									name="confirmPassword"
-									value={formik.values.confirmPassword}
-									onChangeText={formik.handleChange("confirmPassword")}
-									secureTextEntry
-									autoCompleteType="password"
-								/>
-								{formik.errors.confirmPassword &&
-								formik.touched.confirmPassword ? (
-									<Text style={styles.errors}>
-										{formik.errors.confirmPassword}
-									</Text>
-								) : null}
-							</View>
-						</View>
+									<View style={styles.formField}>
+										<Text style={styles.label}>Password</Text>
+										<TextInput
+											style={styles.input}
+											placeholder="Enter your password"
+											name="password"
+											value={formik.values.password}
+											onChangeText={formik.handleChange("password")}
+											secureTextEntry
+											autoCompleteType="password"
+										/>
+										{formik.errors.password && formik.touched.password ? (
+											<Text style={styles.errors}>
+												{formik.errors.password}
+											</Text>
+										) : null}
+									</View>
+									<View style={styles.formField}>
+										<Text style={styles.label}>Confirm Password</Text>
+										<TextInput
+											style={styles.input}
+											placeholder="Confirm your password"
+											name="confirmPassword"
+											value={formik.values.confirmPassword}
+											onChangeText={formik.handleChange("confirmPassword")}
+											secureTextEntry
+											autoCompleteType="password"
+										/>
+										{formik.errors.confirmPassword &&
+										formik.touched.confirmPassword ? (
+											<Text style={styles.errors}>
+												{formik.errors.confirmPassword}
+											</Text>
+										) : null}
+									</View>
+								</View>
+							</ScrollView>
+						</TouchableWithoutFeedback>
 						<View style={styles.buttonContainer}>
 							<View style={styles.slider}>
 								<View style={styles.buttonContainerSlider1}></View>

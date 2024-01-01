@@ -1,0 +1,63 @@
+.why{
+    padding:4.5rem 6rem;
+}
+
+.whyTitle h2{
+    font-size: var(--fontSizeTopic);
+    color: var(--boldcolor);
+    font-weight: 500;
+
+    line-height: 60px;
+    margin: 0 !important;
+}
+
+.whyTitle p{
+    color: var(--lightcolor);
+    font-size: var(--fontSizeP);
+    font-weight: 400;   
+}
+
+/* why details */
+.whyDetails{
+    margin-top: 4.5rem;
+}
+
+.whyDetailsItem{
+    width: 30%;
+    padding: 2.3rem;
+
+    background-color: var(--decorColorShadow);
+    border-radius: 1rem;
+}
+
+.whyDetailsItem i{
+    /* change icon color to decor color*/
+    color: var(--lightcolor);
+    font-size: 3.5rem;
+    padding-bottom: 5rem;
+}
+
+.whyDetailsItem h4{
+    color: var(--boldcolor);
+    font-size: var(--fontSizeSemitopic);
+    font-weight: 500;
+}
+
+.whyDetailsItem p{
+    color: var(--lightcolor);
+    font-size: .9rem;
+    font-weight: 400;
+       
+    width: 84%;
+    height: 4rem;
+    margin: 0;
+}
+
+/* image */
+.whyImg{
+    height: 45vh;
+    background-image: url(../../../public/images/housekeeper-with-detergents-mopping-brow.jpg);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}

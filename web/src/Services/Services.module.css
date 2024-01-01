@@ -1,0 +1,26 @@
+.services{
+    margin-top: 9vh !important;
+}
+
+.servicesImg{
+    height: 50vh;
+    background-color: var(--decorColorShadow);
+    margin:0 6.5rem;
+    overflow: hidden;
+}
+
+.servicesImg img{
+    width: 100% !important;
+}
+
+.servicesBathBar{
+}
+
+.servicesMiddle{
+    margin:0 3.5rem;
+}
+
+.servicesSideBarGeneral{
+    
+    /* border-right: 1px solid rgba(95, 95, 95, 0.15); */
+}

@@ -1,0 +1,371 @@
+@keyframes regiterBar{
+    from{
+        left:-21%;
+    }
+    to{
+        left: 101%;
+    }
+}
+
+.registerEmail{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.registerEmailImg{
+    background-color: #64b1b6;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.registerDetailsTitle{
+    padding: 0rem 1.3rem;
+    height: 10vh;
+}
+
+.projectNameNav{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.8rem !important;
+
+    letter-spacing: .1rem;
+
+    color: white !important;
+}
+
+.projectNameNav span{
+    color: var(--boldcolor) !important;
+}
+
+.registerDetailsTitle h4{
+    color:white;
+    font-size: var(--fontSizesmall);
+    font-weight: 400;
+}
+
+.getStarted{
+    height: 85%;
+    line-height:85% ;
+    padding:.5rem 1.1rem !important;
+    font-size: var(--fontSizenormal);
+    color: white !important;
+    background-color: transparent;
+
+    border: 1px solid white;
+    border-radius: 3rem;
+
+    transition: background-color .5s;
+}
+
+.getStarted:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--lightcolor) !important;
+    border: 1px solid var(--lightcolor);
+}
+
+.registerEmailImgbottom{
+    height: 90vh;
+}
+
+.registerEmailImgDesc{
+    color: white;
+    margin:3.5rem 5.5rem 0;
+    height: 62vh;
+}
+
+.registerEmailImgDesc h2{
+    font-size: var(--fontSizeSemitopic);
+}
+
+.registerEmailImgDesc p{
+    font-size: var(--fontSizeP);
+}
+
+.registerStep{
+    height: 4.5rem;
+
+    position: relative;
+}
+
+.registerStep:first-of-type{
+    opacity: 1;
+}
+
+.registerStep h3{
+    font-size: 1.2rem;
+}
+
+.registerStepCheck{
+    /* color: var(--lightcolor); */
+}
+
+.registerStep i{
+    font-size: 1.25rem;
+}
+
+.registerStepBar{
+    background-color: white;
+    height: 100%;
+
+    margin:0 .5rem;
+}
+
+.registerEmailHelp h3{
+    font-size: var(--fontSizeP);
+}
+
+.registerEmailHelp{
+    padding:.5rem 5.5rem;
+    color: white;
+}
+
+.registerEmailHelp h4{
+    font-size: var(--fontSizeP);
+    font-weight: 400;
+}
+
+.registerEmailHelp .registerEmailSupport{
+    text-decoration: none;
+    color:white ;
+    font-size: var(--fontSizeP);
+    font-weight: 400;
+}
+
+.registerEmailHelp .registerEmailSupport:hover{
+    text-decoration: underline;
+    color:var(--lightcolor) ;
+    transition: .3s;
+}
+
+.registerEmailImg img{
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    right: -148px;
+    bottom: 0;
+}
+
+/* details */
+.registerFormTitle{
+    padding: 0rem 1.3rem;
+    height: 10vh;
+}
+
+.registerFormTitle h2{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--boldGray);
+}
+
+.registerTypeItem{
+    border: 1px solid #a5004725;
+    border-radius: 3rem;
+
+    width: 60%;
+    height: 20vh;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.registerTypeItem p{
+    font-size: var(--fontSizenormal);
+    color: var(--lightGray);
+}
+
+.registerNextLink{
+    width: 40% !important;
+}
+
+.registerDetailsForm .regform{
+    margin:1.6rem 5.5rem 0;
+    height: 68vh;
+    overflow-y:auto;
+    scrollbar-width: thin;
+    scrollbar-color: 'black';
+
+
+}
+
+.registerDetailsForm .formField{
+    min-height: 6.2rem;
+}
+
+.registerDetailsForm label{
+    font-size: var(--fontSizeP);
+    font-weight: 500;
+    color: var(--lightGray);
+    padding-bottom: .3rem;
+}
+
+.mylabel{
+    font-size: var(--fontSizesmall);
+    color: var(--lightGray);
+    padding-bottom: .3rem;
+}
+.registerDetailsForm input:not([type="radio"]){
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+    border:1px solid #a5004725;
+}
+
+.registerDetailsForm input:focus:not([type="radio"]){
+    outline: none;
+    box-shadow: var(--lessshadowColor) 0px 0px 5px 1px;
+    border-color: var(--shadowColor);
+}
+
+.registerDetailsForm input::placeholder{
+    color:rgba(0, 0, 0, 0.46) ;
+    font-size: var(--fontSizesmall);
+}
+.description{
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+    border:1px solid #a5004725;
+    overflow: auto;
+    margin-bottom: .6rem;
+}
+
+.description:focus{
+    outline: none;
+    box-shadow: var(--lessshadowColor) 0px 0px 5px 1px;
+    border-color: var(--shadowColor);
+}
+
+.description::placeholder{
+    color:rgba(0, 0, 0, 0.46) ;
+    font-size: var(--fontSizesmall);
+}
+.dateOfBirth{
+    width:'100%';
+    border:1px solid 'black';
+}
+.radioChoice{
+    outline: none;
+    box-shadow: var(--lessshadowColor) 0px 0px 0px 0px;
+    border-color: var(--shadowColor);
+}
+.registerDetailsForm select {
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+    border:1px solid #a5004725;
+}
+
+.registerDetailsForm select:focus{
+    outline: none;
+}
+
+.registerDetailsForm option {
+    padding: .35rem .6rem;
+    color:var(--lightGray) ;
+}
+
+
+.registerNext{
+    margin:0rem 5.5rem 0;
+    padding-top: 2rem;
+}
+
+.registerNext:before{
+    content: '';
+    position: absolute;
+    background-color: #a500471a;
+    height: 6px;
+    width: 100%;
+    left: 0;
+    top: 0px;
+}
+
+
+.registerNext p{
+    font-size: var(--fontSizeP);
+    color: var(--shadowColor);
+}
+
+.registerTermsLink{
+    text-decoration: none;
+    color: var(--shadowColor);
+    font-weight: 500;
+    font-size: var(--fontSizeP);
+}
+.registerTermsLink:hover{
+    color:#64b1b6 ;
+    font-size: var(--fontSizeP);
+    font-weight: 500;
+}
+
+.registerNextLink{
+    padding:.35rem 1.7rem !important;
+    font-size: var(--fontSizenormal);
+    color: var(--lightcolor) !important;
+    background-color: transparent;
+    border: 1px solid var(--lightcolor);
+    border-radius: 3rem !important;
+    text-align: center;
+    transition: background-color .5s;
+}
+
+.registerNextLink:hover{
+    background-color: var(--shadowColor);
+    color: white !important;
+    border: 1px solid var(--shadowColor);
+}
+
+.errors{
+    color: var(--shadowColor);
+    font-size: .85rem;
+    padding-top: .2rem;
+}
+
+.welcom{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.7rem !important;
+    line-height: 2rem;
+    letter-spacing: .1rem;
+}
+.registerDetailsForm .regType{
+    height: 61vh;
+}
+.dropDownToggle{
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+    border:1px solid #a5004725; 
+    display: flex;
+    align-items: center;
+    
+}
+.dropDownToggle label{
+    color:rgba(0, 0, 0, 0.46) ;
+    font-size: var(--fontSizesmall);
+}
+.dropDownToggle i{
+    color: var(--shadowColor);
+    margin-left: auto;
+}
+.dropDownMenu{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    width: "100%",
+    
+}
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:  #a500471a;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--shadowColor);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--lessshadowColor);
+  }

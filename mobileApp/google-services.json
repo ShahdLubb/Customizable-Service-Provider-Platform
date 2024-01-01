@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "540618473942",
+    "project_id": "cspp-bbb2b",
+    "storage_bucket": "cspp-bbb2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540618473942:android:7a315768b38c722089e477",
+        "android_client_info": {
+          "package_name": "com.shahdlubada.mobileApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTbeULzalTpHgX-KfK6XHAXxbHbaZlqeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

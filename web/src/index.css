@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Indie+Flower&family=Inter:wght@300;500;700&family=Kanit:wght@300;400;600;700;800&family=Kdam+Thmor+Pro&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Mandaic&family=Noto+Serif:wght@300;500;600;700;800&family=Roboto+Slab:wght@300;400;600;700&family=Roboto:ital,wght@0,300;1,400;1,500&family=Rubik:wght@300;400;500;600;700&display=swap');
+
+html{
+  --boldcolor:	#8d1a4c;
+  --lightcolor:rgb(189, 0, 82);
+  --shadowColor:#a50047e1;
+  --lessshadowColor:#a5004781;
+
+  /* need to be changed in why for items background */
+  /* --decorColor:	#a5a200;  */
+    --decorColor:	rgb(29, 181, 192); 
+  --decorColorShadow:rgba(35, 179, 189, 0.09);
+
+/* black */
+  --boldGray:rgb(78, 78, 78);
+  --lightGray:rgba(95, 95, 95, 0.966);
+  --shadowGray:rgba(95, 95, 95, 0.699);
+
+  --fontSizeTopic:3rem;
+  --fontSizeSemitopic:1.5rem;
+  --fontSizenormal:1rem;
+  --fontSizeP:.9rem;
+  --fontSizesmall:.85rem;
+}
+
+*{
+  font-family: 'Inter', sans-serif !;
+}
+
+ul{
+  list-style-type: none;
+}
+

@@ -1,20 +1,19 @@
 import React from "react";
 import { View, ImageBackground } from "react-native";
 import About from "./About/About";
-import HomeStyles from "./Header.style";
+import HeaderStyles from "./Header.style";
 export default function Home() {
 	return (
-		<View style={HomeStyles.home}>
-			<View style={HomeStyles.home}>
+		<View style={HeaderStyles.home}>
+			<View style={HeaderStyles.HomeImageContainer}>
 				<ImageBackground
 					source={require("../../public/images/home.jpg")} // Adjust the image path as needed
-					style={HomeStyles.homeImg}
+					style={HeaderStyles.homeImg}
 				></ImageBackground>
-				<View style={HomeStyles.home}>
-					<View style={HomeStyles.homeAbout}>
-						<About />
-					</View>
-				</View>
+			</View>
+
+			<View style={HeaderStyles.homeAbout}>
+				<About />
 			</View>
 		</View>
 	);

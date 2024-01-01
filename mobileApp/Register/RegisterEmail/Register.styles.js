@@ -138,6 +138,46 @@ export default StyleSheet.create({
     flexDirection: 'row',
     color: globalVars.shadowGray,
   },
+  employmentStatusformField: {
+    padding: '2%',
+  },
+  radioButtonContainer: {
+    padding: '2%',
+  },
+  radioButtonLabel: {
+    paddingLeft: '2%',
+    marginLeft: '2%',
+    flex: 1,
+    color: globalVars.shadowColor,
+    fontSize: 16,
+    fontFamily: globalVars.fontFamily,
+  },
+  radioButtonDescription: {
+    paddingHorizontal: '6%',
+    marginBottom: '2%',
+    color: globalVars.lightGray,
+    fontFamily: globalVars.fontFamily,
+    fontSize: 13,
+  },
+  pickerView: {
+    borderRadius: 6,
+    borderColor: '#a5004725',
+    borderWidth: 1,
+    fontFamily: globalVars.fontFamily,
+    borderColor: '#a5004725',
+    marginTop: '2%',
+    marginBottom: '5%',
+  },
+
+  picker: {
+    backgroundColor: globalVars.decorColor,
+  },
+
+  pickerItem: {
+    fontFamily: globalVars.fontFamily,
+    color: globalVars.boldGray,
+    backgroundColor: "white",
+  },
   buttonContainer: {
     flexDirection: 'column',
     alignItems: 'center',
@@ -149,16 +189,26 @@ export default StyleSheet.create({
     width: '100%',
   },
   buttonContainerSlider1: {
-    width: '50%',
+    width: '34%',
     borderBlockColor: globalVars.decorColor,
     borderWidth: 1,
   },
   buttonContainerSlider2: {
-    width: '50%',
+    width: '66%',
     borderBlockColor: globalVars.boldGray,
     borderWidth: 1,
   },
-  buttonContainerSliderPage2: {
+  buttonContainerSlider1Page2: {
+    width: '66%',
+    borderBlockColor: globalVars.decorColor,
+    borderWidth: 1,
+  },
+  buttonContainerSlider2Page2: {
+    width: '34%',
+    borderBlockColor: globalVars.boldGray,
+    borderWidth: 1,
+  },
+  buttonContainerFullSlider: {
     width: '100%',
     borderBlockColor: globalVars.decorColor,
     borderWidth: 1,

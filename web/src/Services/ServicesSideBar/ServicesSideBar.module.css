@@ -1,0 +1,33 @@
+.servicesSide{
+}
+
+.sideItem{
+    padding-bottom: 2rem;
+}
+
+.sideItem h3{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--boldGray);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.sideTitle{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--boldGray);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-bottom: 2rem !important;
+
+}
+
+.sideSubTitle{
+    font-size: 1.2rem;
+    color: var(--lightGray);
+    text-decoration: none;
+    text-transform: capitalize;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+

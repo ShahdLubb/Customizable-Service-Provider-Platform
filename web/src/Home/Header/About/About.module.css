@@ -1,0 +1,46 @@
+.about h2{
+    font-size: var(--fontSizeTopic);
+    color: white;
+    font-weight: 500;
+
+    width: 80%;
+    padding-bottom: .8rem;
+}
+
+.about h3{
+    font-size: var(--fontSizenormal);
+    color: white;
+    font-weight: 400;
+}
+
+.aboutButton{
+    margin-top: 3rem;
+}
+
+.aboutButton .aboutLink{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    font-size: var(--fontSizenormal);
+    font-weight: 400;
+
+    background-color: var(--boldcolor);
+    padding:.5rem 1.7rem ;
+    border-radius: 1.5rem;
+    border: 1px solid var(--boldcolor);
+}
+
+.aboutButton .aboutLink:hover{
+    color: var(--lightcolor);
+    background-color: white;
+    border: 1px solid var(--shadowColor);
+}
+
+.aboutButton p{
+    color: rgba(255, 255, 255, 0.83);
+    font-size: var(--fontSizesmall);
+    font-weight: 400;
+
+    width: 35%;
+    margin: 0;
+}

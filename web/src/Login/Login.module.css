@@ -1,0 +1,144 @@
+.login{
+    height: 100vh;
+}
+
+.loginDetails{
+    height: 100%;
+}
+
+.loginDetailsTitle{
+    padding: 1rem 1.3rem;
+    height: 10vh;
+}
+
+/* details */
+.projectNameNav{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.8rem !important;
+
+    letter-spacing: .1rem;
+
+    color:var(--lightcolor) !important;
+}
+
+.projectNameNav span{
+    color: var(--lessshadowColor)!important;
+}
+
+.loginDetailsTitle h4{
+    color:var(--shadowColor);
+    font-size: var(--fontSizesmall);
+    font-weight: 400;
+}
+
+.getStarted{
+    padding:.3rem .9rem !important;
+    font-size: var(--fontSizeP);
+    color: var(--shadowColor) !important;
+    background-color: transparent;
+
+    border: 1px solid var(--shadowColor);
+    border-radius: 3rem;
+}
+
+.getStarted:hover{
+    background-color: var(--boldcolor);
+    color: white !important;
+    border: 1px solid var(--boldcolor);
+    transition: .5s;
+}
+
+
+.loginDetailsForm h2{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--boldGray);
+}
+
+.loginDetailsForm .formField{
+    height: 6rem;
+}
+
+.loginDetailsForm label{
+    font-size: var(--fontSizeP);
+    font-weight: 500;
+    color: var(--lightGray);
+    padding-bottom: .2rem;
+}
+
+.loginDetailsForm input{
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+    border:1px solid #a5004725;
+}
+
+.loginDetailsForm input:focus{
+    outline: none;
+    box-shadow: var(--lessshadowColor) 0px 0px 5px 1px;
+    border-color: var(--shadowColor);
+}
+
+.loginDetailsForm input::placeholder{
+    color:rgba(0, 0, 0, 0.46) ;
+}
+
+
+.loginDetailsForm input[type='submit']{
+    padding:.3rem 1.6rem;
+    font-size: var(--fontSizeP);
+    font-weight: 500;
+    color: var(--lightGray) !important;
+    background-color: transparent;
+    border-radius: 3rem;
+}
+
+.loginDetailsForm input[type='submit']:hover{
+    background-color: var(--boldcolor);
+    color: white !important;
+    transition: .5s;
+}
+
+.loginForget{
+    text-decoration: none;
+    color:var(--lightGray) ;
+    font-size: var(--fontSizesmall);
+    font-weight: 500;
+    transition: .3s;
+}
+
+.loginForget:hover{
+    text-decoration: underline;
+    color:var(--lightcolor) ;
+}
+
+
+.loginDetailsHelp h4{
+    color: var(--lightGray);
+    font-size: var(--fontSizeP);
+}
+
+.loginDetailsHelp .loginSupport{
+    text-decoration: none;
+    color:var(--lightGray) ;
+    font-size: var(--fontSizeP);
+    font-weight: 400;
+}
+
+.loginDetailsHelp .loginSupport:hover{
+    text-decoration: underline;
+    color:var(--lightcolor) ;
+    transition: .3s;
+}
+
+/* image */
+.loginImg{
+    background-image: url(../../public/images/loginImg.jpg);
+    background-size: cover;
+}
+
+/* validation */
+.errors{
+    color: var(--shadowColor);
+    font-size: .85rem;
+    padding-top: .2rem;
+}

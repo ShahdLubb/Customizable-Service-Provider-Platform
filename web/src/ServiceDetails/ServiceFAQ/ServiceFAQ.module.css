@@ -1,0 +1,23 @@
+.serviceFAQ h2{
+    color: var(--boldGray);
+    font-size: var(--fontSizeSemitopic);
+}
+
+.faqQuestionsDetails div{
+    padding:1.5rem 0;
+    padding-left: 1.5rem;
+    border-color:var(--decorColorShadow) !important ;
+    border-width: 2px !important;
+}
+
+.faqQuestionsDetails h3{
+    color: var(--lightGray);
+    font-size: var(--fontSizenormal);
+}
+
+.faqQuestionsDetails span{
+    color: var(--lightGray);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}

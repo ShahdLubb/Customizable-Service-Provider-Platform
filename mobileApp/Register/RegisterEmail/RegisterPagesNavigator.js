@@ -4,8 +4,8 @@ import RegisterCustomerAccountInfo from './RegisterCustomerAccountInfo';
 import RegisterCustomerPersonalInfo from './RegisterCustomerPersonalInfo';
 import RegisterWorkerAccountInfo from './RegisterWorkerAccountInfo';
 import RegisterWorkerPersonalInfo from './RegisterWorkerPersonalInfo';
-import RegisterCompanyAccountInfo from './RegisterCompanyAccountInfo';
-import RegisterCompanyPersonalInfo from './RegisterCompanyPersonalInfo';
+import RegisterWorkerWorkInfo from './RegisterWorkerWorkInfo';
+
 const Stack = createNativeStackNavigator();
 export default function RegisterPagesNavigator() {
     return (
@@ -15,8 +15,8 @@ export default function RegisterPagesNavigator() {
             <Stack.Screen name="Customer Info" component={RegisterCustomerPersonalInfo} />
             <Stack.Screen name="Worker Registration" component={RegisterWorkerAccountInfo} />
             <Stack.Screen name="Worker Info" component={RegisterWorkerPersonalInfo} />
-            <Stack.Screen name="Company Registration" component={RegisterCompanyAccountInfo} />
-            <Stack.Screen name="Company Info" component={RegisterCompanyPersonalInfo} />
+            <Stack.Screen name="Work Info" component={RegisterWorkerWorkInfo} />
+
         </Stack.Navigator>
     );
 }

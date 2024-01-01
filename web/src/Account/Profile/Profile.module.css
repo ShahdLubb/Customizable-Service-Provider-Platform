@@ -1,0 +1,111 @@
+.profile{
+    margin-top: 9vh;
+    /* margin-right: 6.5rem; */
+}
+
+.accountSideBar{
+    width: 22%;
+    border-right: 1px solid #a500471a;
+    /* background-color:#a5004709 ; */
+}
+
+.accountSideBarTitle{
+    /* padding-left: 6rem; */
+    height: 28vh;
+}
+
+.accountSideBarTitle::after{
+    content: '';
+    height: 16.5vh;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: var(--boldcolor);
+}
+
+.accountSideBarTitleImg{
+    background-color: white;
+    height: 16vh;
+    width: 16vh;
+    border-radius: 50%;
+    top: 7vh;
+
+    border:3px solid var(--boldcolor);
+    z-index:1;
+}
+
+.accountSideBarTitleImg::after{
+    content: '';
+    position: absolute;
+    height: 18vh;
+    width: 18vh;
+    border-radius: 50%;
+
+    border:8px solid white;
+}
+
+.accountSideBarTitleImg h3{
+    font-size: 3rem;
+    color:  var(--boldcolor);
+}
+
+
+/* sidebar content */
+.accountSideBarContent{
+}
+
+.accountSideBarContent li{
+    padding:1.1rem 2rem;
+    box-sizing: border-box;
+}
+
+.accountSideBarContent li:hover{
+    /* background-color: var(--boldcolor); */
+    background-color:#a5004707 ;
+    border-bottom: 1px solid #a500471a;
+    color: var(--shadowColor) !important;
+}
+
+.accountSideBarContent li:hover .sideBarLink{
+    /* color: white !important; */
+    color: var(--shadowColor) !important;
+
+}
+
+.sideBarLink{
+    font-size: 1rem !important;
+    color: var(--lightGray) !important;
+    font-weight: 500 !important;
+    box-sizing: border-box;
+}
+
+.sideBarLink i{
+    font-size: 1.3rem !important;
+}
+
+.accountSideBarContent .active{
+    /* background-color: var(--boldcolor); */
+    background-color:#a5004707 ;
+    border-bottom: 1px solid #a500471a;
+    color: var(--shadowColor) !important;
+
+}
+
+.accountSideBarContent .activeLink{
+    /* color: white !important; */
+    color: var(--shadowColor) !important;
+}
+
+
+/* account content */
+.accountContent{
+    width:78%;
+}
+
+.accountContentTitle{
+    height: 16.5vh;
+    border-bottom: 1px solid #a500471a;
+    color: var(--boldGray) !important;
+}
+

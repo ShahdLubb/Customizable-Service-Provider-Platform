@@ -1,0 +1,23 @@
+.serviceDetailsImg{
+    height: 78vh;
+}
+
+.shownImg{
+    height: 100%;
+}
+
+.shownImg img{
+    width: 100%;
+    height: 100%;
+}
+
+/* .allImgs{
+    height: 20%;
+    margin-left: 6.5rem;
+}
+
+.allImgs img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+} */

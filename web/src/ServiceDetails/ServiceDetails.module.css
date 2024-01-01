@@ -1,0 +1,11 @@
+.service{
+    margin-top: 9vh;
+    margin-left: 6.5rem;
+    margin-right: 6.5rem;
+    overflow: hidden;
+}
+
+.serviceDetails{
+    height: 78vh;
+    margin: 3rem 0;
+}

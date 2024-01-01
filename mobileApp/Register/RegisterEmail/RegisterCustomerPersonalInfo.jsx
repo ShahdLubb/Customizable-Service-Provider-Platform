@@ -7,6 +7,8 @@ import {
 	KeyboardAvoidingView,
 	ScrollView,
 	Button,
+	Keyboard,
+	TouchableWithoutFeedback,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFormik } from "formik";
@@ -133,7 +135,6 @@ export default function RegisterCustomerPersonalInfo({ route }) {
 						CS<Text style={styles.spanText}>PP</Text>
 					</Text>
 				</View>
-
 				<View style={styles.RegisterView}>
 					<View style={styles.registerFormTitleContainer}>
 						<Text style={styles.registerFormTitleText}>Personal Info</Text>
@@ -141,165 +142,170 @@ export default function RegisterCustomerPersonalInfo({ route }) {
 					</View>
 
 					<View style={styles.regform}>
-						<ScrollView>
-							<View style={styles.regformFields}>
-								<View style={styles.formField}>
-									<Text style={styles.label}>Full Name</Text>
-									<TextInput
-										style={styles.input}
-										placeholder="Enter your full name"
-										name="fullName"
-										value={formik.values.fullName}
-										onChangeText={formik.handleChange("fullName")}
-										autoCapitalize="none"
-										autoCompleteType="fullName"
-									/>
-									{formik.errors.fullName && formik.touched.fullName ? (
-										<Text style={styles.errors}>{formik.errors.fullName}</Text>
-									) : null}
-								</View>
-								<View style={styles.formField}>
-									<Text style={styles.label}>Birthday</Text>
-									<View style={styles.TextandIcon}>
-										<TouchableOpacity
-											style={styles.IconContainer}
-											onPress={showDatePicker}
-										>
-											<FontAwesomeIcon
-												style={styles.Icon}
-												size={20}
-												icon={faCalendarDays}
-											/>
-										</TouchableOpacity>
+						<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+							<ScrollView onScroll={Keyboard.dismiss}>
+								<View style={styles.regformFields}>
+									<View style={styles.formField}>
+										<Text style={styles.label}>Full Name</Text>
 										<TextInput
-											style={
-												selectedDate
-													? styles.dateInputSelected
-													: styles.dateInputNotSelected
-											}
-											placeholder="Enter your birthday"
-											name="dateOfBirth"
-											value={formik.values.dateOfBirth}
-											editable={false}
+											style={styles.input}
+											placeholder="Enter your full name"
+											name="fullName"
+											value={formik.values.fullName}
+											onChangeText={formik.handleChange("fullName")}
+											autoCapitalize="none"
+											autoCompleteType="fullName"
 										/>
+										{formik.errors.fullName && formik.touched.fullName ? (
+											<Text style={styles.errors}>
+												{formik.errors.fullName}
+											</Text>
+										) : null}
 									</View>
-
-									<DateTimePickerModal
-										isVisible={isDatePickerVisible}
-										mode="date"
-										onConfirm={handleConfirm}
-										onCancel={hideDatePicker}
-										textColor="black
-										"
-									/>
-									{formik.errors.dateOfBirth && formik.touched.dateOfBirth ? (
-										<Text style={styles.errors}>
-											{formik.errors.dateOfBirth}
-										</Text>
-									) : null}
-								</View>
-								<View style={styles.formField}>
-									<Text style={styles.label}>Address Line 1</Text>
-									<TextInput
-										style={styles.input}
-										placeholder="Address Line 2"
-										name="line1"
-										value={formik.values.line1}
-										onChangeText={formik.handleChange("line1")}
-										autoCompleteType="line1"
-									/>
-									{formik.errors.line1 && formik.touched.line1 ? (
-										<Text style={styles.errors}>{formik.errors.line1}</Text>
-									) : null}
-								</View>
-								<View style={styles.formField}>
-									<View style={styles.optionalInputContainer}>
-										<Text style={styles.labelForOptionalField}>
-											Address Line 2
-										</Text>
-										<Text style={styles.optionalText}>optional</Text>
-									</View>
-									<TextInput
-										style={styles.input}
-										placeholder="Address Line 2"
-										name="line2"
-										value={formik.values.line2}
-										onChangeText={formik.handleChange("line2")}
-										autoCompleteType="line2"
-									/>
-									{formik.errors.line2 && formik.touched.line2 ? (
-										<Text style={styles.errors}>{formik.errors.line2}</Text>
-									) : null}
-								</View>
-								<View style={styles.formField}>
-									<Text style={styles.label}>City</Text>
-									<TextInput
-										style={styles.input}
-										placeholder="Enter your city"
-										name="city"
-										value={formik.values.city}
-										onChangeText={formik.handleChange("city")}
-										autoCompleteType="city"
-									/>
-									{formik.errors.city && formik.touched.city ? (
-										<Text style={styles.errors}>{formik.errors.city}</Text>
-									) : null}
-								</View>
-								<View style={styles.formField}>
-									<View style={styles.optionalInputContainer}>
-										<Text style={styles.labelForOptionalField}>
-											Postal Code
-										</Text>
-										<Text style={styles.optionalText}>optional</Text>
-									</View>
-									<TextInput
-										style={styles.input}
-										placeholder="Enter your postal code"
-										name="postalCode"
-										value={formik.values.postalCode}
-										onChangeText={formik.handleChange("postalCode")}
-										autoCompleteType="postalCode"
-									/>
-									{formik.errors.postalCode && formik.touched.cpostalCodeity ? (
-										<Text style={styles.errors}>
-											{formik.errors.postalCode}
-										</Text>
-									) : null}
-								</View>
-
-								<View style={styles.formField}>
-									<View style={styles.optionalInputContainer}>
-										<Text style={styles.labelForOptionalField}>
-											Phone number
-										</Text>
-										<Text style={styles.optionalText}>optional</Text>
-									</View>
-									<View style={styles.TextandIcon}>
-										<View style={styles.IconContainer}>
-											<FontAwesomeIcon
-												style={styles.Icon}
-												size={20}
-												icon={faPhone}
+									<View style={styles.formField}>
+										<Text style={styles.label}>Birthday</Text>
+										<View style={styles.TextandIcon}>
+											<TouchableOpacity
+												style={styles.IconContainer}
+												onPress={showDatePicker}
+											>
+												<FontAwesomeIcon
+													style={styles.Icon}
+													size={20}
+													icon={faCalendarDays}
+												/>
+											</TouchableOpacity>
+											<TextInput
+												style={
+													selectedDate
+														? styles.dateInputSelected
+														: styles.dateInputNotSelected
+												}
+												placeholder="Enter your birthday"
+												name="dateOfBirth"
+												value={formik.values.dateOfBirth}
+												editable={false}
 											/>
 										</View>
-										<TextInput
-											style={styles.InputwithIcon}
-											placeholder="Enter your phone number"
-											name="phone"
-											value={formik.values.phone}
-											onChangeText={formik.handleChange("phone")}
+
+										<DateTimePickerModal
+											isVisible={isDatePickerVisible}
+											mode="date"
+											onConfirm={handleConfirm}
+											onCancel={hideDatePicker}
+											textColor="black
+										"
 										/>
+										{formik.errors.dateOfBirth && formik.touched.dateOfBirth ? (
+											<Text style={styles.errors}>
+												{formik.errors.dateOfBirth}
+											</Text>
+										) : null}
+									</View>
+									<View style={styles.formField}>
+										<Text style={styles.label}>Address Line 1</Text>
+										<TextInput
+											style={styles.input}
+											placeholder="Address Line 2"
+											name="line1"
+											value={formik.values.line1}
+											onChangeText={formik.handleChange("line1")}
+											autoCompleteType="line1"
+										/>
+										{formik.errors.line1 && formik.touched.line1 ? (
+											<Text style={styles.errors}>{formik.errors.line1}</Text>
+										) : null}
+									</View>
+									<View style={styles.formField}>
+										<View style={styles.optionalInputContainer}>
+											<Text style={styles.labelForOptionalField}>
+												Address Line 2
+											</Text>
+											<Text style={styles.optionalText}>optional</Text>
+										</View>
+										<TextInput
+											style={styles.input}
+											placeholder="Address Line 2"
+											name="line2"
+											value={formik.values.line2}
+											onChangeText={formik.handleChange("line2")}
+											autoCompleteType="line2"
+										/>
+										{formik.errors.line2 && formik.touched.line2 ? (
+											<Text style={styles.errors}>{formik.errors.line2}</Text>
+										) : null}
+									</View>
+									<View style={styles.formField}>
+										<Text style={styles.label}>City</Text>
+										<TextInput
+											style={styles.input}
+											placeholder="Enter your city"
+											name="city"
+											value={formik.values.city}
+											onChangeText={formik.handleChange("city")}
+											autoCompleteType="city"
+										/>
+										{formik.errors.city && formik.touched.city ? (
+											<Text style={styles.errors}>{formik.errors.city}</Text>
+										) : null}
+									</View>
+									<View style={styles.formField}>
+										<View style={styles.optionalInputContainer}>
+											<Text style={styles.labelForOptionalField}>
+												Postal Code
+											</Text>
+											<Text style={styles.optionalText}>optional</Text>
+										</View>
+										<TextInput
+											style={styles.input}
+											placeholder="Enter your postal code"
+											name="postalCode"
+											value={formik.values.postalCode}
+											onChangeText={formik.handleChange("postalCode")}
+											autoCompleteType="postalCode"
+										/>
+										{formik.errors.postalCode &&
+										formik.touched.cpostalCodeity ? (
+											<Text style={styles.errors}>
+												{formik.errors.postalCode}
+											</Text>
+										) : null}
 									</View>
 
-									{formik.errors.phone && formik.touched.phone ? (
-										<Text style={styles.errors}>{formik.errors.phone}</Text>
-									) : null}
+									<View style={styles.formField}>
+										<View style={styles.optionalInputContainer}>
+											<Text style={styles.labelForOptionalField}>
+												Phone number
+											</Text>
+											<Text style={styles.optionalText}>optional</Text>
+										</View>
+										<View style={styles.TextandIcon}>
+											<View style={styles.IconContainer}>
+												<FontAwesomeIcon
+													style={styles.Icon}
+													size={20}
+													icon={faPhone}
+												/>
+											</View>
+											<TextInput
+												style={styles.InputwithIcon}
+												placeholder="Enter your phone number"
+												name="phone"
+												value={formik.values.phone}
+												onChangeText={formik.handleChange("phone")}
+											/>
+										</View>
+
+										{formik.errors.phone && formik.touched.phone ? (
+											<Text style={styles.errors}>{formik.errors.phone}</Text>
+										) : null}
+									</View>
 								</View>
-							</View>
-						</ScrollView>
+							</ScrollView>
+						</TouchableWithoutFeedback>
 						<View style={styles.buttonContainer}>
 							<View style={styles.slider}>
-								<View style={styles.buttonContainerSliderPage2}></View>
+								<View style={styles.buttonContainerFullSlider}></View>
 							</View>
 							<TouchableOpacity
 								style={styles.submitButton}

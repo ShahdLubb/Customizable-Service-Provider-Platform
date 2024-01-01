@@ -1,0 +1,21 @@
+.pathBar{
+    height: 5vh;
+    background-color: var(--decorColorShadow);
+    padding: 0 6.5rem;
+}
+
+.pathLink{
+    text-decoration: none;
+    color: var(--lightGray);
+    font-size: var(--fontSizenormal) !important;
+}
+
+.pathLink:hover{
+    color: var(--shadowColor);
+    transition: .3s;
+}
+
+.pathBar span{
+    color: var(--lightGray);
+    font-size: var(--fontSizenormal) !important;
+}

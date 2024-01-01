@@ -1,0 +1,12 @@
+.bookService{
+    margin-top: 9vh !important;
+    height: 100vh;
+}
+
+.bookServiceOther{
+    display: none;
+}
+
+.bookServiceOptions{
+    display: none;
+}

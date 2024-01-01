@@ -1,30 +1,25 @@
 
 import { StyleSheet } from 'react-native';
 
-const HomeStyles = StyleSheet.create({
+const HeaderStyles = StyleSheet.create({
   home: {
-    flex: 1,
-    position: 'relative',
+    height: '100%',
     backgroundColor: 'white',
   },
   homeAbout: {
     flex: 1,
     width: '100%',
     alignSelf: 'flex-end',
-    marginTop: '24rem',
     backgroundColor: 'white',
   },
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    flex: 1,
-    position: 'relative',
-  },
-  homeImg: {
-    flex: 1,
-    height: '100%',
-    resizeMode: 'cover',
+  HomeImageContainer: {
+    height: '60%',
     justifyContent: 'center',
   },
+  homeImg: {
+    height: '100%',
+  },
+
 });
 
-export default HomeStyles;
+export default HeaderStyles;

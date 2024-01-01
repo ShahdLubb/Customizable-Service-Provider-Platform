@@ -1,0 +1,57 @@
+.faq{
+    padding:4.5rem 6rem;
+    padding-bottom: 0rem;
+}
+.faqTitles h2{
+    color: var(--boldcolor);
+    font-size: var(--fontSizeTopic);
+}
+
+.faqTitles h3{
+    color: var(--lightcolor);
+    font-size: var(--fontSizenormal);
+}
+
+.faqTitles h4{
+    color: var(--lightcolor);
+    font-size: var(--fontSizesmall);
+    font-weight: 400;
+}
+
+.faqTitles img{
+    width: 60%;
+}
+
+.faqTitleImg2{
+    z-index: -1;
+    right: 10%;
+}
+
+/* questions */
+.faqQuestions h3{
+    color: var(--boldcolor);
+    font-size: var(--fontSizenormal);
+    font-weight: 00;
+}
+
+.faqQuestions p{
+    color: var(--lightcolor);
+    font-size: var(--fontSizesmall);
+    width: 85%;
+}
+
+.faqQuestions span{
+    font-size: var(--fontSizeSemitopic);
+    cursor: pointer;
+    color: var(--boldcolor);
+}
+
+.faqQuestionsDetails div{
+    padding: 1.15rem 0;
+}
+
+.faqQuestionsDetails div:last-child{
+    padding: 1.15rem 0 0 0;
+}
+
+

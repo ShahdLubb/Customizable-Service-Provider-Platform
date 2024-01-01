@@ -4,16 +4,10 @@ import { globalVars } from '../../App.styles';
 export default StyleSheet.create({
     page: {
         backgroundColor: 'white',
-        height: '100%'
-    },
-
-    RegisterView: {
-        padding: '4%',
-        backgroundColor: '#64b1b6',
-        height: '60%',
+        flex: 1,
+        justifyContent: 'center'
     },
     projectNameNavContainer: {
-        marginTop: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -29,6 +23,13 @@ export default StyleSheet.create({
         fontFamily: 'Cinzel-ExtraBold',
         color: globalVars.lessShadowColor,
     },
+    RegisterView: {
+        padding: '4%',
+        backgroundColor: globalVars.decorColor,
+        flex: 0.6,
+        justifyContent: 'center'
+    },
+
     newCustomerContainer: {
         marginTop: '5%',
         flexDirection: 'column',
@@ -69,7 +70,7 @@ export default StyleSheet.create({
         borderColor: 'rgba(255, 255, 255, 0.6)',
     },
     getStartedButtonText: {
-        color: '#0D121C',
+        color: globalVars.boldGray,
         fontSize: 18, // Adjust the font size as needed
         fontWeight: '500',
         width: '100%',
@@ -79,12 +80,12 @@ export default StyleSheet.create({
     },
     logInView: {
         textAlign: 'center',
-        height: '28%',
+        flex: 0.3,
         justifyContent: 'space-between',
         alignItems: 'center',
     },
     LoginContainer: {
-        marginTop: '18%',
+        flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
@@ -120,9 +121,9 @@ export default StyleSheet.create({
     },
 
     needHelpView: {
-        marginTop: '5%',
         textAlign: 'center',
-        justifyContent: 'space-between',
+        flex: 0.1,
+        justifyContent: 'center',
         alignItems: 'center',
     },
     needHelpTitle: {

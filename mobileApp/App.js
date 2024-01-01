@@ -1,9 +1,8 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { jwtDecode } from 'jwt-decode';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import GetStarted from './Register/RegisterEmail/GetStarted';
@@ -13,6 +12,13 @@ import WorkerScreens from "./WorkerScreens/WorkerScreens"
 import * as SecureStore from 'expo-secure-store';
 import * as Font from 'expo-font';
 import AuthContext from './AuthContext';
+import * as Device from 'expo-device';
+import * as Notifications from 'expo-notifications';
+import Constants from 'expo-constants';
+
+
+
+
 
 const loadFonts = async () => {
   await Font.loadAsync({

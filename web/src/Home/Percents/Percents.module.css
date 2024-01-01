@@ -1,0 +1,51 @@
+/* image */
+/* .percentsImg{
+    height: 45vh;
+    background-image: url(../../../public/images/lucky-scientist-man.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.percentsImg h3{
+    font-size: var(--fontSizeTopic);
+    color: white;
+    font-weight: 500;
+    
+    padding:0 6rem;
+    line-height: 60px;
+    width:45% ;
+} */
+
+
+/* details */
+.percentsDetails{
+    background-color: var(--shadowColor);
+    color: white;
+    padding:4.5rem 6rem;
+}
+
+.percentsDetails p{
+    font-size: var(--fontSizenormal);
+    text-align: center;
+    padding-bottom: 2.7rem;
+}
+
+.percentsDetails .percentsDetailsItem h3{
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding-bottom: .5rem;
+}
+
+.percentsDetails .percentsDetailsItem h4{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.percentImg{
+    height: 45vh;
+    background-image: url(../../../public/images/housekeeper-with-detergents-mopping-brow.jpg);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}

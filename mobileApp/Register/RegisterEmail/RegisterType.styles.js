@@ -4,10 +4,10 @@ import { globalVars } from '../../App.styles';
 export default StyleSheet.create({
   page: {
     backgroundColor: 'white',
-    height: '100%',
+    flex: 1,
+    justifyContent: 'center'
   },
   projectNameNavContainer: {
-    marginTop: '10%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -25,20 +25,18 @@ export default StyleSheet.create({
   },
   RegisterView: {
     padding: '4%',
-    backgroundColor: 'rgba(100,177,182,0.3)',
-    height: '80%',
-    justifyContent: 'center',
-  },
-  registerTypesDetails: {
-    margin: '2%',
+    backgroundColor: globalVars.decorColorShadow,
+    flex: 0.8,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-evenly',
   },
+
   registerTypeView: {
     margin: '2%',
     padding: '8%',
     backgroundColor: 'white',
     borderRadius: 12,
+    flex: 0.3
   },
   registerTypeNextContainer: {
 

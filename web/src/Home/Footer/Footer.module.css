@@ -1,0 +1,88 @@
+.footer{
+    background-color: var(--boldcolor);
+    padding:4.5rem 6rem;
+    padding-bottom: 0;
+}
+
+.footer h2{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.8rem !important;
+
+    letter-spacing: .1rem;
+
+    color: white !important;
+}
+
+.footer .navItem{
+    font-weight: 400;
+    font-size: var(--fontSizenormal);
+}
+
+.footer .navLink{
+    color: white !important;
+}
+
+
+.footerContact form{
+    background-color: white;
+    padding: .4rem;
+    border-radius: 1rem;
+}
+
+.footerContact form input{
+    background-color: white;
+    padding: .4rem;
+    border-radius: .8rem;
+    border: none;
+}
+
+.footerContact form input:focus{
+    outline: none;
+}
+
+.footerContact form input[type="submit"]{
+    background-color: var(--shadowColor);
+    padding: .4rem 1.4rem;
+    border-radius: .8rem;
+    border: none;
+    color: white;
+    border: 1px solid var(--shadowColor);
+}
+
+.footerContact form input[type="submit"]:hover{
+    background-color: white;
+    color: var(--shadowColor);
+    border: 1px solid var(--shadowColor);
+}
+
+.footerContact h3{
+    color: white !important;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.footerContact i{
+    font-size: 1.6rem;
+}
+
+.footerContact{
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+/* footer end */
+.footerEnd{
+    color:rgba(255, 255, 255, 0.54);
+}
+
+.footerEnd h4{
+    font-size: var(--fontSizesmall);
+    font-weight: 400;
+}
+
+.footerEnd .navLink{
+    color:rgba(255, 255, 255, 0.54) !important;
+    font-size: var(--fontSizesmall);
+}
+

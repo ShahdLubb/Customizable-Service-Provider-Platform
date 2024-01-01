@@ -4,8 +4,9 @@ import { globalVars } from '../App.styles';
 const styles = StyleSheet.create({
 
     loginDetails: {
-        padding: 20,
+        padding: '4%',
         backgroundColor: 'white',
+        height: '100%'
 
     },
     projectNameNavContainer: {
@@ -47,15 +48,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500',
         color: globalVars.boldGray,
-        paddingBottom: 4,
+        paddingBottom: '2%',
         fontFamily: globalVars.fontFamily,
     },
+
     input: {
-        padding: 8,
+        padding: '4%',
         borderRadius: 6,
         borderColor: '#a5004725',
         borderWidth: 1,
         fontFamily: globalVars.fontFamily,
+        fontSize: 16,
     },
     buttonContainer: {
         flexDirection: 'column',

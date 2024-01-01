@@ -1,0 +1,85 @@
+.serviceDetailsDesc{
+    height: 78vh;
+}
+
+.serviceDetailsDesc .serviceDetailsDescTitle{
+    height:19%;
+}
+
+.serviceDetailsDesc .serviceName{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--boldGray);
+}
+
+.serviceDetailsDesc i{
+    color: rgb(250, 192, 0);
+    font-size: var(--fontSizeP);
+}
+
+.serviceDetailsDesc .serviceDetailsDescTitle .like{
+    font-size: var(--fontSizeSemitopic);
+    color: var(--lightcolor);
+    cursor: pointer;
+}
+
+.serviceDetailsDesc .companyName{
+    font-size: var(--fontSizeP);
+    color: var(--shadowGray);
+    text-decoration:none;
+}
+
+.serviceDetailsDesc .companyName:hover{
+    color: var(--lightcolor);
+}
+
+.serviceDetailsDesc .serviceDetailsDescreption{
+    height:25% ;
+    width: 95%;
+    font-size: var(--fontSizeP);
+    color: var(--lightGray);
+}
+
+.serviceDetailsDesc .serviceDetailsDescIncluded{
+    height: 25%;
+}
+
+.serviceDetailsDesc h3{
+    font-size: 1rem !important;
+    color: var(--boldGray);
+}
+
+.serviceDetailsDesc .serviceDetailsDescIncluded p{
+    width: 95%;
+    font-size: var(--fontSizeP);
+    color: var(--lightGray);
+}
+
+.serviceDetailsDesc .serviceDetailsDescPrice{
+    height: 15%;
+}
+
+.serviceDetailsDesc .serviceDetailsDescPrice h4{
+    color: var(--lightGray);
+    font-size: var(--fontSizeP);
+}
+
+.serviceDetailsDesc .serviceDetailsDescPrice h4 span{
+    color: var(--shadowColor);
+}
+
+.serviceDetailsDesc .serviceBook{
+    padding:.3rem 1.1rem !important;
+    font-size: var(--fontSizenormal) !important;
+    color: white !important;
+    background-color: rgba(95, 95, 95, 0.6);
+
+    border: 1px solid white;
+    border-radius: 3rem;
+
+    border: 1px solid var(--shadowGray);
+}
+
+.serviceDetailsDesc .serviceBook:hover{
+    background-color: var(--lightcolor);
+    border: 1px solid var(--lightcolor);
+}

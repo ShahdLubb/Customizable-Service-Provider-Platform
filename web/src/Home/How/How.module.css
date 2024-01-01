@@ -1,0 +1,62 @@
+.how{
+    padding:4.5rem 6rem;
+}
+
+.how h2{
+    color: var(--boldcolor);
+    font-size: var(--fontSizeTopic);
+    font-weight: 500;
+
+    line-height: 60px;
+    height: fit-content;
+}
+
+.howDetailsBar{
+    background-color: var(--decorColor);
+    height: 3px;
+    width: 90%;
+
+    margin-bottom: 1.3rem;
+
+    position: relative;
+}
+
+.howDetailsBar::before{
+    content: '';
+    height: 15px !important;
+    width: 5px;
+    background-color: var(--decorColor);
+
+    position: absolute;
+    top: -200%;
+}
+
+.howDetails h3{
+    color: var(--decorColor);
+    font-size: var(--fontSizesmall);
+    font-weight: 500;
+}
+
+.howDetails h4{
+    color: var(--boldcolor);
+    font-size: var(--fontSizeSemitopic);
+}
+
+.howDetails p{
+    color: var(--lightcolor);
+    font-size: var(--fontSizeP);
+    font-weight: 400;
+       
+    width: 74.6%;
+    height: 4rem;
+}
+
+/* image */
+.howImg{
+    height: 45vh;
+    background-image: url(../../../public/images/man-cleaning-his-home.jpg);
+    background-size: cover;
+    background-position:0 -40px;
+    background-attachment: fixed;
+}
+

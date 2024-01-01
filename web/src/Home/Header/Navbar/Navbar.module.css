@@ -1,0 +1,195 @@
+nav{
+    height: 9vh;
+    z-index: 9 !important;
+}
+
+.projectNameNav{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.8rem !important;
+
+    letter-spacing: .1rem;
+
+    color: white !important;
+}
+
+.projectNameNav span{
+    color: var(--boldcolor) !important;
+}
+
+.navItem{
+    font-weight: 400;
+    font-size: var(--fontSizenormal);
+}
+
+.navLink{
+    color: white !important;
+}
+
+.dropDownNav{
+    border: 1px solid var(--lightcolor) !important;
+}
+
+.dropDownNav:before{
+    content: '';
+    height: 18px;
+    width: 10px;
+    background-color: var(--shadowColor);
+    position: absolute;
+    bottom: 100%;
+    left: 10%;
+    clip-path: polygon(50% 50%, 0 100%, 100% 100%);
+}
+
+.dropDownNav .dropDownNavLink:hover{
+    background-color: var(--shadowColor) !important;
+    color: white !important;    
+}
+
+.dropDownNav .dropDownNavLink{
+    color: var(--shadowColor);    
+}
+
+.navEnd{
+    width: 25%;
+}
+
+.searchNav{
+    height: 85%;
+    /* width: 65%; */
+    padding:0 .3rem;
+    
+    border-radius: .5rem;
+    border: 1px solid white;
+
+    box-shadow: white 0px 0px 4px 0px inset;
+    background-color: transparent;
+}
+
+.searchNav::placeholder{
+    color: white;
+    text-align: center;
+}
+
+.searchNav:focus{
+    border-color: var(--boldcolor);
+    outline: none;
+    box-shadow: var(--boldcolor) 0px 0px 5px 1px;
+
+    background-color: white;
+}
+
+.loginNav{
+    height: 85%;
+    line-height:85% ;
+    padding:.5rem 1.1rem !important;
+    font-size: var(--fontSizenormal);
+    color: white !important;
+    background-color: transparent;
+
+    border: 1px solid white;
+    border-radius: 3rem;
+
+    transition: background-color .5s;
+}
+
+.loginNav:hover{
+    background-color: white;
+    color: var(--lightcolor) !important;
+    border: 1px solid var(--lightcolor);
+}
+
+.userFullName{
+    color: white;
+    font-size: var(--fontSizenormal);
+    cursor: pointer;
+}
+
+.navEnd span{
+    cursor: pointer;
+}
+
+.dropDownProfile{
+    left:-55% !important ;
+    border: 1px solid var(--lightcolor) !important;
+    top: 30px !important;
+}
+
+.dropDownProfile .dropDownNavLink:hover{
+    background-color: var(--shadowColor) !important;
+    color: white !important;    
+}
+
+.dropDownProfile .dropDownNavLink{
+    color: var(--shadowColor);    
+    font-size: var(--fontSizenormal);
+}
+.dropDownProfile h4{
+    cursor: pointer;
+}
+
+/* when scrolling values */
+.scrolled , .notHome{
+    background-color: white !important;
+    border-bottom: 1px solid #a500471a;
+
+    position: fixed !important;
+    top: 0;
+}
+
+.notScrolled {
+    background-color: transparent !important;
+}
+
+.scrolled .navLink , .notHome .navLink{
+    color: var(--lightcolor) !important;
+}
+
+.scrolled .projectNameNav , .notHome .projectNameNav{
+    color:var(--lightcolor) !important;
+}
+
+.scrolled .projectNameNav span , .notHome .projectNameNav span{
+    color: var(--lessshadowColor)!important;
+}
+
+.scrolled .searchNav , .notHome .searchNav{
+    border: 1px solid var(--lightcolor);
+}
+
+.scrolled .searchNav::placeholder , .notHome .searchNav::placeholder{
+    color: var(--lightcolor);
+}
+
+.scrolled .searchNav:focus , .notHome .searchNav:focus{
+    border-color: var(--lightcolor);
+    outline: none;
+    box-shadow: var(--lightcolor) 0px 0px 5px 0px;
+}
+
+.scrolled .loginNav , .notHome .loginNav {
+    color: var(--lightcolor) !important;
+    border: 1px solid var(--lightcolor);
+}
+
+.scrolled .loginNav:hover , .notHome .loginNav:hover{
+    background-color: var(--lightcolor);
+    color: white !important;
+    border: 1px solid var(--lightcolor);
+}
+
+.dropDownNav{
+    top: 48px !important;
+}
+
+.scrolled .userFullName , .notHome .userFullName{
+    color: var(--shadowColor);
+}
+
+.scrolled .navEnd span , .notHome .navEnd span{
+    color: var(--shadowColor) !important;
+}
+
+.scrolled .dropDownProfile , .notHome .dropDownProfile{
+    top: 40px !important;
+}
