@@ -63,13 +63,10 @@ export default function Navbar({ userData, setUserData }) {
               <li className={`${style.navItem} nav-item`}>
                 <Link className={`${style.navLink} nav-link text-capitalize`} to="/">contact us</Link>
               </li>
-              <li className={`${style.navItem} nav-item`}>
-                <Link className={`${style.navLink} nav-link text-capitalize`} to="/">about us</Link>
-              </li>
+
             </ul>
 
-            <div className={`${style.navEnd} d-flex gap-4 align-items-center justify-content-between`} role="search">
-              <input className={`${style.searchNav} col-7`} type="search" placeholder="Search" />
+            <div className={`${style.navEnd} d-flex gap-4 align-items-center justify-content-end`} role="search">
 
               {userData ?
                 (<div className='col-4 d-flex align-items-center justify-content-center dropdown' data-bs-toggle="dropdown">

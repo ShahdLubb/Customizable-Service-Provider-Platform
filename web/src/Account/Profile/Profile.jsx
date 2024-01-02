@@ -7,9 +7,10 @@ export default function Profile({ userData, setUserData }) {
 		const storedUserData = localStorage.getItem("user");
 		if (storedUserData) {
 			const parsedUserData = JSON.parse(storedUserData);
+			console.log(parsedUserData);
 			setUserData(parsedUserData);
 		}
-	}, []);
+	}, [userData]);
 	return (
 		<div>
 			<div className={`${style.profile} d-flex`}>

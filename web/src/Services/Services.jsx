@@ -2,8 +2,6 @@ import React from "react";
 import style from "./Services.module.css";
 import Navbar from "../Home/Header/Navbar/Navbar";
 import Footer from "../Home/Footer/Footer.jsx";
-import ServicesSideBar from "./ServicesSideBar/ServicesSideBar";
-import ServiceView from "./ServiceView/ServiceView.jsx";
 import PathBar from "./PathBar/PathBar.jsx";
 import img1 from "./portrait-man-cleaning-his-house (1).jpg";
 import img2 from "./portrait-man-cleaning-his-house (2).jpg";

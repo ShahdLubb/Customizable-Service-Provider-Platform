@@ -23,7 +23,7 @@ import BookService from './BookService/BookService';
 
 function App() {
 
-  let [userData, setUserData] = useState();
+  let [userData, setUserData] = useState([]);
 
   // get all categories:
   let [categories, setCategories] = useState([]);
@@ -71,7 +71,7 @@ function App() {
     { path: '/:category/:id/services/:serviceId/book', element: <BookService allServices={allServices} /> },
 
     {
-      path: 'account', element: <LayoutAcc />, children: [
+      path: '/account', element: <LayoutAcc userData={userData} setUserData={setUserData} />, children: [
         { path: '', element: <Profile userData={userData} setUserData={setUserData} /> },
         // { path: 'payment', element: <Payment /> },
         // { path: 'myOrders', element: <MyOrders /> },
