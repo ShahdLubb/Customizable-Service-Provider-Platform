@@ -66,7 +66,7 @@ function App() {
       ]
     },
 
-    { path: '/:category/:id/services', element: <Services allServices={allServices} userData={userData} setUserData={setUserData} /> },
+    { path: '/:category/:id/services', element: <Services userData={userData} setUserData={setUserData} /> },
     { path: '/:category/:id/services/:serviceId', element: <ServiceDetails allServices={allServices} /> },
     { path: '/:category/:id/services/:serviceId/book', element: <BookService allServices={allServices} /> },
 
