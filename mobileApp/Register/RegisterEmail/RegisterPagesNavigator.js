@@ -9,7 +9,7 @@ import RegisterWorkerWorkInfo from './RegisterWorkerWorkInfo';
 const Stack = createNativeStackNavigator();
 export default function RegisterPagesNavigator() {
     return (
-        <Stack.Navigator initialRouteName="Register Type">
+        <Stack.Navigator initialRouteName="Register Type" screenOptions={{ headerBackTitleVisible: false }} >
             <Stack.Screen name="Register Type" component={RegisterType} options={{ headerShown: false }} />
             <Stack.Screen name="Customer Registration" component={RegisterCustomerAccountInfo} />
             <Stack.Screen name="Customer Info" component={RegisterCustomerPersonalInfo} />

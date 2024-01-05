@@ -63,7 +63,7 @@ export default function RegisterWorkerWorkInfo({ route }) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const { data } = await axios.get("http://192.168.1.17:8085/companies");
+				const { data } = await axios.get("http://192.168.1.3:8085/companies");
 				setCompanies(data);
 				setError(null);
 			} catch (error) {
@@ -155,7 +155,7 @@ export default function RegisterWorkerWorkInfo({ route }) {
 		try {
 			console.log(convertData(values));
 			const { data } = await axios.post(
-				"http://192.168.1.17:8085/register/employee",
+				"http://192.168.1.3:8085/register/employee",
 				convertData(values)
 			);
 			setTimeout(() => {

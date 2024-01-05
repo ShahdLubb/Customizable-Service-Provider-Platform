@@ -15,10 +15,7 @@ import AuthContext from './AuthContext';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
-
-
-
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const loadFonts = async () => {
   await Font.loadAsync({
@@ -106,24 +103,26 @@ function App() {
   console.log('App executed!');
   return (
     <NavigationContainer>
-      <AuthContext.Provider value={authContext}>
-        <Stack.Navigator initialRouteName="Home">
-          {state.user !== null && state.user.role === "ROLE_CUSTOMER" ? (
-            <Stack.Screen name="Customer Screens" component={CustomerScreens} options={{ headerShown: false }} />
+      <SafeAreaProvider>
+        <AuthContext.Provider value={authContext} headerBackTitleVisible="false" >
+          <Stack.Navigator initialRouteName="Home">
+            {state.user !== null && state.user.role === "ROLE_CUSTOMER" ? (
+              <Stack.Screen name="Customer Screens" component={CustomerScreens} options={{ headerShown: false }} />
 
-          ) : state.user !== null && state.user.role === "ROLE_EMPLOYEE" ? (
-            <Stack.Screen name="Worker Screens" component={WorkerScreens} options={{ headerShown: false }} />
+            ) : state.user !== null && state.user.role === "ROLE_EMPLOYEE" ? (
+              <Stack.Screen name="Worker Screens" component={WorkerScreens} options={{ headerShown: false }} />
 
-          ) : (
-            <>
-              <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-              <Stack.Screen name="Log in" component={Login} options={{ headerShown: false }} />
-              <Stack.Screen name="Get started" component={GetStarted} options={{ headerShown: false }} />
-              <Stack.Screen name="RegisterPagesNavigator" component={RegisterPagesNavigator} options={{ headerShown: false }} />
-            </>
-          )}
-        </Stack.Navigator>
-      </AuthContext.Provider>
+            ) : (
+              <>
+                <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+                <Stack.Screen name="Log in" component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name="Get started" component={GetStarted} options={{ headerShown: false }} />
+                <Stack.Screen name="RegisterPagesNavigator" component={RegisterPagesNavigator} options={{ headerShown: false }} />
+              </>
+            )}
+          </Stack.Navigator>
+        </AuthContext.Provider>
+      </SafeAreaProvider>
     </NavigationContainer>
 
   );

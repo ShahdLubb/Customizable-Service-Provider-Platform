@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
-import styles from "./Login.styles"; // React Native styles for your component
+import styles from "./Login.styles";
 import AuthContext from "../AuthContext";
 export default function Login() {
 	const navigation = useNavigation();
@@ -40,7 +40,7 @@ export default function Login() {
 	async function checkDataAuth(values) {
 		try {
 			const { data } = await axios.post(
-				"http://192.168.1.17:8085/login",
+				"http://192.168.1.3:8085/login",
 				values
 			);
 			console.log(data);
@@ -56,7 +56,12 @@ export default function Login() {
 			}
 		} catch (error) {
 			const errorMessage = error.message;
-			setErrors(errorMessage);
+			console.log(error.code);
+			if (error.code === "ERR_BAD_REQUEST") {
+				setErrors("Wrong email or password");
+			} else {
+				setErrors("something went wrong try after a couple of minutes");
+			}
 			console.log(error);
 			console.log(errorMessage);
 		}

@@ -115,7 +115,7 @@ export default function RegisterCustomerPersonalInfo({ route }) {
 		try {
 			console.log(convertData(values));
 			const { data } = await axios.post(
-				"http://192.168.1.17:8085/register/customer",
+				"http://192.168.1.3:8085/register/customer",
 				convertData(values)
 			);
 			setTimeout(() => {
